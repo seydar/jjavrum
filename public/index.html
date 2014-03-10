@@ -30,15 +30,27 @@
 		 	<div data-role="content">
 		 		<h1><span>Give An Item</span></h1>
 		 		<form id = "postData" onsubmit="formSubmit()">
+		 			<label for="name"> Item Name: </label>
+		 			<input type="text" name="name" id="name" value=""/>
+
+					<!-- categories should be defined and this should become a dropdown-->		 			
+		 			<label for="category"> Item Category: </label>
+		 			<input type="text" name="category" id="category" value=""/>
+
 		 			<label for="description"> Description: </label>
-		 			<textarea name="description" id="description">
-		 			</textarea>
-		 			<label for="address">Address:</label>
-		 			<input type="text" name="address" id="address" value=""/>
+		 			<textarea name="description" id="description" value=""></textarea>
+		 			
+		 			<label for="pickUp">Pick Up Instructions:</label>
+		 			<textarea name="pickUp" id="pickUp" value=""></textarea>
+
+		 			<label for="available"> Time Available: </label>
+		 			<input type = "text" name="available" id="available" value=""/>
+
 		 			<button name = "submit" id="submit"> Submit </button>
 		 		</form>
 		 		<!--For test purposes only-->
-		 		<span> Current version does not get user's location and uses a default value instead </span>
+		 		<span> Current version does not get user's location and uses a default value instead.
+		 		This will change in future updates </span>
 		 	</div>
 		 </div>
 

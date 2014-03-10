@@ -20,23 +20,16 @@ var collection = db.get('data');
 collection.ensureIndex({"loc":"2dsphere"})
 
 
-testObject = {loc: {type: "Point", coordinates: [-83.7263, 42.208333]},
-				description:"this is a cool thing", address:"300 State St.",
-				status: "Available", time: new Date()
-			}
-testObject2 = {loc: {type: "Point", coordinates: [20.7263, 12.1222]},
-				description:"take it please", address:"12343 Main St.",
-				status: "Claimed", time: new Date()
-			}
-/*
-collection.insert(testObject)
-collection.insert(testObject2)
+/*testObject = {"loc": {"type": "Point", "coordinates": [-83.7263, 42.20833]},
+				"name":"new object","description": "this is a description", "pickUp": "pickup at my house", 
+				"category":"thing","available":"for 3 days", 
+				"status": "Available", "time": new Date()};
 
+collection.insert(testObject)*/
 
-collection.insert({loc: {type: "Point", coordinates: [-83.7263,42.20833]}})
-collection.insert({loc: {type: "Point", coordinates: [20.12322, 12.12222]}})
-collection.insert({otherObject: true})*/
 /*
+collection.insert({otherObject: true})
+
 collection.find({}, function(err, docs) {
 	console.log("All")
 	console.log(docs);

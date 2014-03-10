@@ -1,6 +1,6 @@
 //Main JavaScript File
 
-
+//submits give item form
 function formSubmit() {
 
 	var dataString = $('#postData').serialize();
