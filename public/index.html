@@ -12,7 +12,13 @@
 
         <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyA0OQMwB_43IX4oltxDjxZqL7LCyRvfznI&sensor=true"></script>
         <script type="text/javascript" src="js/main.js"></script>
+<<<<<<< HEAD
 		<script type="text/javascript" src="js/ExampleDataFile.json"></script>
+=======
+        <script src="http://malsup.github.com/jquery.form.js"></script> 
+
+
+>>>>>>> 1c66d5074bc99aa999c84217ea53ab78f335cbce
 
     </head>
 	<body>
@@ -21,7 +27,12 @@
 					<h1><span>JusTake</span></h1>
 					<h2>Save the enviornment and get free stuff!</h2>
 						<a href="#give" data-role="button" data-transition="slide">Give</a>
+<<<<<<< HEAD
 						<a href="#map" data-role="button" data-transition="slide">Take</a>
+=======
+						<a href="#test" dat-role="button"> Test </a>
+						<a href="#take" data-role="button" data-transition="slide">Take</a>
+>>>>>>> 1c66d5074bc99aa999c84217ea53ab78f335cbce
 						<a href="#about" data-role="button" data-transition="slide" >About</a>
 				</div>
 		 </div>
@@ -30,11 +41,10 @@
 		 <div data-role="page" id="give">
 		 	<div data-role="content">
 		 		<h1><span>Give An Item</span></h1>
-		 		<form id = "postData" onsubmit="formSubmit()">
+		 		<form id = "postData" enctype="multipart/form-data" method="post">
 		 			<label for="name"> Item Name: </label>
 		 			<input type="text" name="name" id="name" value=""/>
 
-					<!-- categories should be defined and this should become a dropdown-->		 			
 		 			<label for="category"> Item Category: </label>
 		 			<input type="text" name="category" id="category" value=""/>
 
@@ -47,13 +57,39 @@
 		 			<label for="available"> Time Available: </label>
 		 			<input type = "text" name="available" id="available" value=""/>
 
+	 				<button type="button" id="chatPicButt" class="ui-btn ui-shadow" value="picture" onclick="chatOrPic(this)">Take Picture</button>
+
+					<input data-role="none" type="file" name="uploadedImage" id="uploadedImage" style="visibility: hidden;"/>
+
+					<input type="text" name="latitude" id="latitude" value="32.232" style="display: none;">
+					<input type="text" name="longitude" id="longitude" value="43.232" style="display: none;">
+
+					<!-- Fill these in with calls to maps API -->
+
+					
+
+
 		 			<button name = "submit" id="submit"> Submit </button>
+
 		 		</form>
 		 		<!--For test purposes only-->
 		 		<span> Current version does not get user's location and uses a default value instead.
 		 		This will change in future updates </span>
 		 	</div>
 		 </div>
+
+		 <div data-role="page" id="test">
+		 	<div data-role="content">
+		 		<h1> <span> Test </span> </h1>
+		 		<div>
+
+
+					
+
+					<!--<iframe id = "picture" src=""></iframe>-->
+				</div>
+			</div>
+		</div>
 
 
 		<div data-role="page" id="about">
