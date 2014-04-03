@@ -1,4 +1,161 @@
 //Main JavaScript File
+curPos = new google.maps.LatLng(46, 46);
+
+/// Data Object Class (Model Copy)
+function DataObject(data){
+    // Creator
+    this.DataArray = [];
+    if (typeof data != "undefined")
+    {
+        this.DataArray = data;
+    }
+
+    // Properties
+    this.index = -1;
+    this.length = this.DataArray.length;
+
+    // Methods
+    this.add = function(feature)
+    {
+        this.DataArray.push(feature);
+        this.length = this.DataArray.length;
+    }
+
+    this.addProperty = function(name, value)
+    {
+        if (this.index >= 0)
+        {
+			this.DataArray[this.index][name] = value;
+        }
+    }
+
+    this.get = function(index)
+    {
+        if (index < this.DataArray.length)
+        {
+			return this.DataArray[index];
+        }
+        return null;
+    }
+
+    this.rewind = function()
+    {
+        this.Index = -1;
+    }
+
+    this.next = function()
+    {
+        this.index += 1;
+        if (this.index < this.DataArray.length)
+        {
+        return this.DataArray[this.index];
+        }
+        this.index = -1;
+        return null;
+    }
+
+    this.filter = function(field, value)
+    {
+        var list = new FeatureList();
+        for (var i = 0; i < this.DataArray.length; i++)
+        {
+        var result = false;
+        eval ("result = this.DataArray[i]." + field + ".indexOf(\"" + value + "\") >= 0")
+        if (result)
+        {
+            list.add(this.DataArray[i]);
+        }
+        }
+        return list;
+    }
+	
+    this.list = function(field)
+    {
+        var list = [];
+        for (var i = 0; i < this.DataArray.length; i++)
+        {
+        var value = this.DataArray[i][field];
+        var l;
+        for (l = 0; l < list.length; l++)
+        {
+            if (value == list[l])
+            {
+            break;
+            }
+        }
+        if (l >= list.length)
+        {
+            list.push(value);
+        }
+        }
+        return list;
+    }
+}
+
+/// Controller Code (domain specific)
+{
+	//returns a coordinate object containing current position
+	
+	function getPosition(){
+		if(navigator.geolocation)
+		{
+			navigator.geolocation.getCurrentPosition(function(position){	
+				curPos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+			});
+		} else {
+			curPos = new google.maps.LatLng(46, 46);
+		}
+	}
+	
+}
+
+/// Map Page View//Controller Code
+{
+	$(document).on("pageinit", "#map", function(){
+	
+	//Get the data (from static file for testing)
+	var TrashList = new DataObject(ExampleData);
+	exampleTrash = TrashList.next();
+	alert(exampleTrash.name);
+	//Create the map controller
+	getPosition();
+	mapController = new MapCont('map-canvas', curPos.lat(), curPos.lng(), 10);
+	mapController.addMarker(curPos.lat(), curPos.lng(), 1000);
+		
+   });
+
+	//Map Classes
+	/// MapCont(canvasId, latitude, longitude, zoomLevel)
+	{
+		function MapCont(canvasId, latitude, longitude, zoomLevel){
+			this.canvas = canvasId;
+			this.mapPosition = new google.maps.LatLng(latitude, longitude);
+			this.curPosition = getPosition();
+			this.zoom = zoomLevel;
+			this.options = {
+				center: this.mapPosition,
+				zoom: this.zoom,
+				mapTypeId: google.maps.MapTypeId.ROADMAP,
+				streetViewControl: false,
+				mapTypeControl: false,
+				zoomControl: true,  
+				zoomControlOptions: {style: google.maps.ZoomControlStyle.SMALL, position: google.maps.ControlPosition.TOP_LEFT },
+				panControl: false
+			}
+			this.map = new google.maps.Map(document.getElementById(this.canvas), this.options);	
+		}
+		
+		MapCont.prototype.addMarker = function(lat, lng, objectId){
+			this.locationMarker = new google.maps.Marker({
+				position: new google.maps.LatLng(lat, lng),
+				map: this.map,
+				id: objectId
+				});
+		}
+		
+	}//End of MapCont Class
+	
+}//End of Map Code
 
 //submits give item form
 function formSubmit() {

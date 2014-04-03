@@ -1,0 +1,8 @@
+var ExampleData = [
+{name:"My Couch", latitude:"46.1",longitude:"46.1",description:"This is my old couch",category:"Furniture",pickUp:"Get off lawn",available:"1",image:"..."},
+{name:"My Couch", latitude:"46.1",longitude:"46.1",description:"This is my old couch",category:"Furniture",pickUp:"Get off lawn",available:"1",image:"..."},
+{name:"My Couch", latitude:"46.1",longitude:"46.1",description:"This is my old couch",category:"Furniture",pickUp:"Get off lawn",available:"1",image:"..."},
+{name:"My Couch", latitude:"46.1",longitude:"46.1",description:"This is my old couch",category:"Furniture",pickUp:"Get off lawn",available:"1",image:"..."},
+{name:"My Couch", latitude:"46.1",longitude:"46.1",description:"This is my old couch",category:"Furniture",pickUp:"Get off lawn",available:"1",image:"..."},
+{name:"My Couch", latitude:"46.1",longitude:"46.1",description:"This is my old couch",category:"Furniture",pickUp:"Get off lawn",available:"1",image:"..."}
+];
