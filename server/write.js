@@ -11,12 +11,16 @@ var db = monk('localhost:27017/justakeDB');
 
 var collection = db.get('data');
 
-/*
-var imagesDB = monk('localhost:27017/iamgesDB')
-var grid = new Grid(imagesDB, 'fs')
-GridStore.exists(imagesDB, "a.txt")*/
 
-var gfs = Grid(imagesDB, mongo)
+var imagesDB = monk('localhost:27017/imagesDB')
+
+  var gfs = Grid(imagesDB, mongo);
+
+var writestream = gfs.createWriteStream({filename: "origname", mode: 'w'});
+
+var readStream = fs.createReadStream("tempfile/test.txt")
+
+
 
 //https://stackoverflow.com/questions/16482233/store-file-in-mongos-gridfs-with-expressjs-after-upload
 
@@ -33,25 +37,32 @@ exports.addObject = function(req, res) {
 			console.log(gridStore);
 			gridStore.close();
 		});
-	});
-	
-	var tempfile = req.files.filename.path;
-	var origname = req.files.filename.name;
+	});*/
+
+	console.log("called")
+
+	console.log(req.files.picture);
+	var tempfile = req.files.uploadedImage.path;
+	console.log(tempfile)
+	var origname = req.files.uploadedImage.name;
+	console.log(origname)
 	var writestream = gfs.createWriteStream({filename: origname});
+	console.log(writestream)
+	console.log("erer\n\n\n\n\n")
 	fs.createReadStream(tempfile)
 		.on('end', function() {
 			console.log('OK')
 			res.send('OK')
 		})
 		.on('error', function() {
-			console.og('ERR')
+			console.log('ERR')
 			res.send('ERR')
 		})
-		.pipe(writestream);*/
+		.pipe(writestream);
 
-	
-	
-	console.log(req.query)
+	//console.log(req.params);
+	//console.log(req.files)
+	//console.log(req.query)
 	var longitude = parseFloat(req.query.longitude);
 	var latitude = parseFloat(req.query.latitude);
 	var name = req.query.name;
@@ -61,7 +72,7 @@ exports.addObject = function(req, res) {
 	var daysAvailable = parseInt(req.query.available)
 	var availableUntil = new Date();
 	availableUntil.setDate(availableUntil.getDate() + daysAvailable);
-	console.log(availableUntil);
+	//console.log(availableUntil);
 
 	var date = new Date();
 	var object = {"loc": {"type": "Point", "coordinates": [longitude, latitude]},
@@ -72,8 +83,8 @@ exports.addObject = function(req, res) {
 
 
 	collection.insert(object, function(err, response) {
-		console.log(response);
-		console.log(err)
+		//console.log(response);
+		//console.log(err)
 		if (err == null) {
 			console.log("success")
 			res.send(200);

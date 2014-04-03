@@ -6,9 +6,16 @@ var read = require('./server/read.js')
 var write = require('./server/write.js')
 
 app = express();
+
 app.set('port', process.env.PORT || 8888);
 app.use(express.static(__dirname + '/public'));
 app.listen(app.get('port'));
+
+app.configure(function(){
+	app.use(express.methodOverride());
+	app.use(express.bodyParser({}));
+});
+
 
 // Database Code
 var mongo = require('mongodb');
