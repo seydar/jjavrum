@@ -1,10 +1,12 @@
-var url = require("url")
+var url = require("url");
+var mongo = require('mongodb');
+var GridFS = require('GridFS').GridFS;
+var GridStream = require('GridFS').GridStream
 
 
 // Database Code
-var mongo = require('mongodb');
 var monk = require('monk');
-var db = monk('localhost:27017/test');
+var db = monk('localhost:27017/justakeDB');
 var collection = db.get('data');
 
 
@@ -33,21 +35,32 @@ function queryBuilder(queryObject){
 		var loc = {"$near":near};
 		returnQuery["loc"] = loc;
 	}
-	//adds a category query if requested 
-	if (queryObject.category) {
-		returnQuery["category"] = queryObject.category;
-	}
-	console.log(returnQuery);
+	//console.log(returnQuery);
 	return returnQuery;
-
 }
 
 /*Parses the query string given by the URL, finds objects that pass the filter in the database
 and returns them*/
 exports.getObjects = function(req, res) {
 	var searchQuery = queryBuilder(req.query);
-	collection.find(searchQuery, function(err, docs) {
-		//console.log(docs)
-		res.send(docs)
-	});
+	var latitude;
+	var longitude;
+	if (parseFloat(req.query.longitude) && parseFloat(req.query.latitude)){
+		longitude = parseFloat(req.query.longitude)
+		latitude = parseFloat(req.query.latitude);
+		console.log("longitude = " + longitude);
+		console.log("latitude = " + latitude);
+		var orderBy = {"$geometry" : {"type": "Point", "coordinates": [longitude, latitude]}}
+		collection.find( { $query: searchQuery,  $orderby: {"$near": [orderBy]}} , function(err, docs) {
+			//console.log(docs)
+			console.log("success")
+
+			res.send(docs)
+		
+		});
+	}
+	else {
+		console.log("error")
+		res.error("Longitude and Longitude required");
+	}
 }
