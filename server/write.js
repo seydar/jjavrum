@@ -16,7 +16,7 @@ var imagesDB = monk('localhost:27017/iamgesDB')
 var grid = new Grid(imagesDB, 'fs')
 GridStore.exists(imagesDB, "a.txt")*/
 
-var gfs = Grid(imagesDB, mongo)
+//var gfs = Grid(imagesDB, mongo)
 
 //https://stackoverflow.com/questions/16482233/store-file-in-mongos-gridfs-with-expressjs-after-upload
 
