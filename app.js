@@ -4,6 +4,13 @@ var http = require('http')
 
 var read = require('./server/read.js')
 var write = require('./server/write.js')
+var Db = require('mongodb').Db
+var Server = require('mongodb').Server
+var MongoClient = require('mongodb').MongoClient;
+var Grid = require('mongodb').Grid;
+
+
+
 
 app = express();
 
@@ -15,6 +22,20 @@ app.configure(function(){
 	app.use(express.methodOverride());
 	app.use(express.bodyParser({}));
 });
+
+
+//initializes gridfs db for images
+Db.connect("mongodb://localhost:27017/imagesDB", function(err, db) {
+  if(err) return console.dir(err);
+
+  var grid = new Grid(db, 'fs');    
+ /* grid.put(buffer, {metadata:{category:'text'}, content_type: 'text'}, function(err, fileInfo) {
+    if(!err) {
+      console.log("Finished writing file to Mongo");
+    }
+    });*/
+});
+
 
 
 // Database Code
@@ -34,6 +55,12 @@ testObject = {"loc": {"type": "Point", "coordinates": [21.34, 33.33]},
 
 //collection.insert(testObject)
 
+/*var db = new Db('imagesDB', new Server('localhost', 27017))
+db.open(function(err, db) {
+	console.log("open db")
+	var grid = new Grid(db, 'fs')
+})*/
+
 console.log("server starting")
 
 collection.find({}, function(err, docs) {
@@ -41,31 +68,6 @@ collection.find({}, function(err, docs) {
 	//console.log(docs);
 })
 
-collection.find({loc: { $near: 
-		{	$geometry:
-			{	type: "Point",
-				coordinates: [-83.72, 42.20]
-			}
-		}
-	}}, function(err, docs) {
-		console.log("second")
-		//console.log(docs)
-		//console.log(err)
-	}
-)
-
-collection.find({loc: { $near: 
-		{	$geometry:
-			{	type: "Point",
-				coordinates: [-83.72, 42.20]
-			}
-		}, $maxDistance:100000
-	}}, function(err, docs) {
-		console.log("third")
-		//console.log(docs)
-		//console.log(err)
-	}
-)
 
 app.get("/", function(req, res){
 	res.sendFile("index.html");
