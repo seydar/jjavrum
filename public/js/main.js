@@ -1,5 +1,16 @@
 //Main JavaScript File
-curPos = new google.maps.LatLng(46, 46);
+///Global Variables
+{
+	//The Map Controller; Create with map initalize
+	var mapController = null;
+    var positionTimer = null;
+	//Holds all trash to be displayed populate with data at load
+	var TrashList = null;
+	//Your current latitude at any given time
+	curLat = 46;
+	//Your current logitutde at any given time
+	curLng = 46;
+}
 
 /// Data Object Class (Model Copy)
 function DataObject(data){
@@ -94,19 +105,51 @@ function DataObject(data){
 
 /// Controller Code (domain specific)
 {
-	//returns a coordinate object containing current position
-	
-	function getPosition(){
+	//initalize the map and sets up location finding services
+	function mapInitialize(){
 		if(navigator.geolocation)
 		{
 			navigator.geolocation.getCurrentPosition(function(position){	
-				curPos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+				curLat = position.coords.latitude;
+				curLng = position.coords.longitude;
+				//Create the Map
+				mapController = new MapCont('map-canvas', curLat, curLng, 17);
+				//Add position Marker 
+				mapController.addMarker(curLat, curLng, -1);
+				//Add the entrire TrashList to the map
+				mapController.populateMap();
+				//Set up the positionTimer to watch and update our position
+				positionTimer = navigator.geolocation.watchPosition(function(position){
+					// Update Curent Position		
+					curLat = position.coords.latitude;
+					curLng = position.coords.longitude;
+					if (mapController = NULL){
+					}
+				});
+			
 			});
-		} else {
-			curPos = new google.maps.LatLng(46, 46);
-		}
+		} 
 	}
 	
+	//returns a coordinate object containing current position ***Use in get code***
+	function getPosition(){
+		return new google.maps.LatLng(curLat, curLng);
+	}
+	
+	//populate the trash list ***Hook into server***
+	//Adds mapId property to each item in the list
+	function populateTrashList(miles){
+		TrashList = new DataObject(ExampleData);
+		// Add a number to use as the Google Map Marker to each item on the list
+		TrashList.rewind(); 
+		var item = TrashList.next();
+		var i = 0;
+		while (item != null){
+			TrashList.addProperty("mapId", i); 
+			var item = TrashList.next();
+			i++;     
+		}
+	}
 }
 
 /// Map Page View//Controller Code
@@ -114,14 +157,9 @@ function DataObject(data){
 	$(document).on("pageinit", "#map", function(){
 	
 	//Get the data (from static file for testing)
-	var TrashList = new DataObject(ExampleData);
-	exampleTrash = TrashList.next();
-	alert(exampleTrash.name);
-	//Create the map controller
-	getPosition();
-	mapController = new MapCont('map-canvas', curPos.lat(), curPos.lng(), 10);
-	mapController.addMarker(curPos.lat(), curPos.lng(), 1000);
-		
+	populateTrashList(100000);
+	//Create the map controller and populates the map
+	mapInitialize();	
    });
 
 	//Map Classes
@@ -132,6 +170,7 @@ function DataObject(data){
 			this.mapPosition = new google.maps.LatLng(latitude, longitude);
 			this.curPosition = getPosition();
 			this.zoom = zoomLevel;
+			this.markerData = new Array();
 			this.options = {
 				center: this.mapPosition,
 				zoom: this.zoom,
@@ -145,17 +184,57 @@ function DataObject(data){
 			this.map = new google.maps.Map(document.getElementById(this.canvas), this.options);	
 		}
 		
+		//adds a marker to the map
 		MapCont.prototype.addMarker = function(lat, lng, objectId){
-			this.locationMarker = new google.maps.Marker({
+			    var locationMa = new google.maps.Marker({
 				position: new google.maps.LatLng(lat, lng),
 				map: this.map,
 				id: objectId
 				});
 		}
 		
+		//pans the map to the users position
+		MapCont.prototype.panToPosition = function(){
+			this.map.panTo(getPosition());
+		}
+		
+		//places all items on the map within the specified miles
+		MapCont.prototype.populateMap = function(){
+			TrashList.rewind(); 
+			var item = TrashList.next();
+			var i = 0;
+			while (item != null)
+			{
+				alert(item.latitude);
+				itemPos = new google.maps.LatLng(item.latitude, item.longitude);
+				this.markerData[item.mapId] = new google.maps.Marker({
+					position: itemPos,
+					map: this.map,
+					title: item.name
+				});
+				this.markerData[item.mapId].ID = item.ID;
+				this.markerData[item.mapId].index = item.mapId;
+				
+				/*google.maps.event.addListener(markerData[item.mapId], 'click', function(e) {
+					infobox.close();
+					infobox.setContent(infoContent(this.index));
+					infobox.open(map, this);
+					map.panTo(100,100);
+
+				});*/
+
+				var item = TrashList.next();
+				i++;     
+			}
+		}
+		
 	}//End of MapCont Class
 	
 }//End of Map Code
+
+
+
+
 
 $(document).ready(function() { 
     var options = { 
@@ -227,20 +306,6 @@ function showResponse(responseText, statusText, xhr, $form)  {
     alert('status: ' + statusText + '\n\nresponseText: \n' + responseText + 
         '\n\nThe output div should have already been updated with the responseText.'); 
 } 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

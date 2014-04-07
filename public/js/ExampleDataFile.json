@@ -1,8 +1,8 @@
 var ExampleData = [
-{name:"My Couch", latitude:"46.1",longitude:"46.1",description:"This is my old couch",category:"Furniture",pickUp:"Get off lawn",available:"1",image:"..."},
-{name:"My Couch", latitude:"46.1",longitude:"46.1",description:"This is my old couch",category:"Furniture",pickUp:"Get off lawn",available:"1",image:"..."},
-{name:"My Couch", latitude:"46.1",longitude:"46.1",description:"This is my old couch",category:"Furniture",pickUp:"Get off lawn",available:"1",image:"..."},
-{name:"My Couch", latitude:"46.1",longitude:"46.1",description:"This is my old couch",category:"Furniture",pickUp:"Get off lawn",available:"1",image:"..."},
-{name:"My Couch", latitude:"46.1",longitude:"46.1",description:"This is my old couch",category:"Furniture",pickUp:"Get off lawn",available:"1",image:"..."},
-{name:"My Couch", latitude:"46.1",longitude:"46.1",description:"This is my old couch",category:"Furniture",pickUp:"Get off lawn",available:"1",image:"..."}
+{name:"My Couch", latitude:"42.2",longitude:"-83.1",description:"This is my old couch",category:"Furniture",pickUp:"Get off lawn",available:"1",image:"..."},
+{name:"Old Computer", latitude:"42.1",longitude:"-83.1",description:"This is my old couch",category:"Furniture",pickUp:"Get off lawn",available:"1",image:"..."},
+{name:"Dresser", latitude:"42.3",longitude:"-83.3",description:"This is my old couch",category:"Furniture",pickUp:"Get off lawn",available:"1",image:"..."},
+{name:"Cloths", latitude:"42.1",longitude:"-83.0",description:"This is my old couch",category:"Furniture",pickUp:"Get off lawn",available:"1",image:"..."},
+{name:"Table", latitude:"42.2",longitude:"-83.2",description:"This is my old couch",category:"Furniture",pickUp:"Get off lawn",available:"1",image:"..."},
+{name:"Wood chair", latitude:"42.3",longitude:"-83.1",description:"This is my old couch",category:"Furniture",pickUp:"Get off lawn",available:"1",image:"..."}
 ];
