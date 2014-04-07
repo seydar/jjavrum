@@ -30,8 +30,21 @@
 						<a href="#map" data-role="button" data-transition="slide">Take</a>
 
 						<a href="#about" data-role="button" data-transition="slide" >About</a>
+
 				</div>
-		 </div>
+				<div>
+					<!-- this is an example of a test get request -->
+					<button onclick="getRequest()"> Test Get Request </button>
+					<!--will display the image associated with the first file uploaded after the
+					button is pressed-->
+					<img id="picture" src=""> </img>
+					
+					<button onclick="deleteRequest()"> Test delete request </button>
+
+
+
+				</div>
+			</div>
 		
 		 <!-- newly added for testing purposes-->
 		 <div data-role="page" id="give">
@@ -62,9 +75,6 @@
 
 					<!-- Fill these in with calls to maps API -->
 
-					
-
-
 		 			<button name = "submit" id="submit"> Submit </button>
 
 		 		</form>
@@ -74,19 +84,7 @@
 		 	</div>
 		 </div>
 
-		 <div data-role="page" id="test">
-		 	<div data-role="content">
-		 		<h1> <span> Test </span> </h1>
-		 		<div>
-
-
-					
-
-					<!--<iframe id = "picture" src=""></iframe>-->
-				</div>
-			</div>
-		</div>
-
+		 
 
 		<div data-role="page" id="about">
 			<div data-role="content">
@@ -106,7 +104,9 @@
 					<div id="map-canvas" class="group-map" style="width:100%; height:100%;"></div>
 			</div>
 		</div>
-		
+
+	
+
 	</body>
 	
 </html>
