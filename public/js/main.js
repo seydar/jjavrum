@@ -205,7 +205,6 @@ function DataObject(data){
 			var i = 0;
 			while (item != null)
 			{
-				alert(item.latitude);
 				itemPos = new google.maps.LatLng(item.latitude, item.longitude);
 				this.markerData[item.mapId] = new google.maps.Marker({
 					position: itemPos,
@@ -232,14 +231,8 @@ function DataObject(data){
 	
 }//End of Map Code
 
-<<<<<<< HEAD
 
-
-
-
-=======
 //code for submitting a post request to the server
->>>>>>> 1cfc331fabfa8f1db27ffb1462a0c6cb0f36ec38
 $(document).ready(function() { 
     var options = { 
         beforeSubmit:  showRequest,  // pre-submit callback 
@@ -279,13 +272,11 @@ function showResponse(responseText, statusText, xhr, $form)  {
  
     alert('status: ' + statusText + '\n\nresponseText: \n' + responseText + 
         '\n\nThe output div should have already been updated with the responseText.'); 
-<<<<<<< HEAD
 } 
 
 
 
-=======
-}
+
 /*
 >>>>>>> 1cfc331fabfa8f1db27ffb1462a0c6cb0f36ec38
 function previewImage(input) {
