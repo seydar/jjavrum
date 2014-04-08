@@ -8,6 +8,8 @@ var Db = require('mongodb').Db
 var Server = require('mongodb').Server
 var MongoClient = require('mongodb').MongoClient;
 var Grid = require('mongodb').Grid;
+var ObjectID = require('mongodb').ObjectID,
+
 
 
 
@@ -75,13 +77,42 @@ app.get("/", function(req, res){
 });
 
 
-var minutes = 1;
+var minutes = 0.2;
 var interval = minutes*60*1000;
 //runs every hour to remove any entry that has passed its expiration time
 setInterval(function() {
 	var curTime = new Date();
 	var removeObj = {"availableUntil": {$lt : new Date()}};
-	collection.remove(removeObj, function(err, response) {
+	console.log(removeObj)
+	collection.find(removeObj, function(err, response) {
+		console.log(response)
+		for (var i = 0; i < response.length; i++) {
+			var objectId = response[i]._id;
+			var removeObj = {"_id":objectId};
+
+			console.log(response[i])
+			var fileId = String(response[i].fileId);
+			var fileObjId = ObjectID(fileId);
+			var imagesMonk = monk('localhost:27017/imagesDB');
+
+			var filesCollection = imagesMonk.get('fs.files');
+			var chunksCollection = imagesMonk.get('fs.chunks');
+			var fileRemoveObj = {"_id":fileObjId};
+			var chunksRemoveObj = {"files_id":fileObjId}
+			chunksCollection.remove(chunksRemoveObj, function(err, response) {
+				console.log("item with id " + fileId + " deleted from chunksCollection")
+				console.log(response);
+				filesCollection.remove(fileRemoveObj, function(err, response) {
+					console.log("item with id " + fileId + " deleted from filesCollection")
+					console.log(response);
+					collection.remove(removeObj, function(err, response) {
+						console.log("item with id " + objectId + " deleted.");
+						console.log(response);
+					});
+				})
+			})
+
+		}
 		console.log("interval function running")
 		console.log(response);
 	});
