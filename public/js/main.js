@@ -3,7 +3,7 @@
 {
 	//The Map Controller; Create with map initalize
 	var mapController = null;
-    var positionTimer = null;
+        var positionTimer = null;
 	//Holds all trash to be displayed populate with data at load
 	var TrashList = null;
 	//Your current latitude at any given time
@@ -152,6 +152,12 @@ function DataObject(data){
 	}
 }
 
+//List View Code
+{
+    $(document).on("pageint", "#list", function(){
+        addToList();
+    })
+}
 /// Map Page View//Controller Code
 {
 	$(document).on("pageinit", "#map", function(){
@@ -233,7 +239,7 @@ function DataObject(data){
 
 
 //code for submitting a post request to the server
-$(document).ready(function() { 
+$(document).ready(function() {                      
     var options = { 
         beforeSubmit:  showRequest,  // pre-submit callback 
         success:       showResponse,  // post-submit callback 
@@ -359,4 +365,9 @@ function deleteRequest() {
             
         }
 	})
+}
+
+function addToList(){
+    var item = $("listItem").clone(true);
+    $("#accordian").append(item);
 }

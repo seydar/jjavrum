@@ -16,8 +16,7 @@
 		<script type="text/javascript" src="js/ExampleDataFile.json"></script>
 
         <script src="http://malsup.github.com/jquery.form.js"></script> 
-
-
+ 
 
     </head>
 	<body>
@@ -41,7 +40,7 @@
 					
 					<button onclick="deleteRequest()"> Test delete request </button>
 
-
+                                        <a href="#list" data-role="button" data-transition="slide">Example List View</a>
 
 				</div>
 			</div>
@@ -104,9 +103,26 @@
 					<div id="map-canvas" class="group-map" style="width:100%; height:100%;"></div>
 			</div>
 		</div>
-
+                 
+                 <div data-rol="page" id="list">
+                     <div id="accordian" data-role="collapsible-set" data-theme="a" data-content-theme="a">
+                         <div data-role="collapsible" class="listItem">
+                             <div background-color="blue" height="50px" width="50px" float="left">Image Goes Here</div>
+                                <h3>Item Name</h3>
+                                <p>Item Description</p>
+                                <p>Pick Up Directions</p>
+                                <p>Time Remaining</p>
+                         </div>
+                         <div data-role="collapsible" class="listItem">
+                             <div background-color="blue" height="50px" width="50px" float="left">Image Goes Here</div>
+                                <h3>Item Name</h3>
+                                <p>Item Description</p>
+                                <p>Pick Up Directions</p>
+                                <p>Time Remaining</p>
+                         </div>
+                     </div>
+                 </div>
 	
-
 	</body>
 	
 </html>
