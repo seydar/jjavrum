@@ -150,18 +150,23 @@ function DataObject(data){
 			i++;     
 		}
 	}
+        
+    function addToList(){
+    $("#accordian").append('<div data-role="collapsible" class="listItem"><h3>Item Name</h3><div class="listImage">Image Goes Here</div><div class="itemInfo"><p>Item Description</p><p>Pick Up Directions</p><p>Time Remaining</p></div></div>');
+    $("#accordian").collapsibleset("refresh");
+}
 }
 
 //List View Code
 {
-    $(document).on("pageint", "#list", function(){
+    $(document).on("pageinit", "#list", function(){
         addToList();
-    })
+    });
 }
 /// Map Page View//Controller Code
 {
 	$(document).on("pageinit", "#map", function(){
-	
+
 	//Get the data (from static file for testing)
 	populateTrashList(100000);
 	//Create the map controller and populates the map
@@ -365,9 +370,4 @@ function deleteRequest() {
             
         }
 	})
-}
-
-function addToList(){
-    var item = $("listItem").clone(true);
-    $("#accordian").append(item);
 }
