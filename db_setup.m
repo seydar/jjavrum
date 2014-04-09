@@ -38,19 +38,22 @@ function db = db_setup(path)
     paper.save_me     = @save_me;
   end
 
-  function artist = get_artist(artist_name)
-    listing   = dir([path '/papers/' artist_name '.*']);
+  function author = get_author(author_name)
+    listing   = dir([path '/papers/' author_name '.*']);
     listing   = arrayfun(@(x) x.name, listing, 'uni', false);
 
-    features  = struct();
+    papers  = struct();
     if size(listing, 1) ~= 0
       for i = 1:size(listing, 1)
-        feature = listing{i};
-        feature = feature((length(paper_name) + 2):(end - 4));
-        load([path '/features/' listing{i}], 'data');
-        features.(feature) = data;
+        listing{i}
+        paper = get_paper(listing{i});
+        papers = [papers paper];
       end
     end
+
+    author = struct();
+    author.name   = author_name;
+    author.papers = papers;
   end
 
   db = struct();
