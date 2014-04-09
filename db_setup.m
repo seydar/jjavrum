@@ -1,8 +1,10 @@
 function db = db_setup(path)
 
   function paper = get_paper(paper_name)
+    [author, delims] = strsplit(paper_name, '.');
+    author = author{1};
     full_path = [path '/papers/' paper_name];
-    data      = importdata(full_path);
+    text      = importdata(full_path);
 
     listing   = dir([path '/features/' paper_name '.*']);
     listing   = arrayfun(@(x) x.name, listing, 'uni', false);
@@ -32,6 +34,8 @@ function db = db_setup(path)
 
     paper = struct();
     paper.name        = paper_name;
+    paper.author      = author;
+    paper.text        = text;
     paper.path        = full_path;
     paper.features    = features;
     paper.add_feature = @add_feature;
@@ -45,7 +49,6 @@ function db = db_setup(path)
     papers  = struct();
     if size(listing, 1) ~= 0
       for i = 1:size(listing, 1)
-        listing{i}
         paper = get_paper(listing{i});
         papers = [papers paper];
       end
