@@ -3,6 +3,12 @@ require 'json'
 require 'nokogiri'
 require 'pp'
 
+DEBUG = ARGV.include?('-d') || ARGV.include?('--debug')
+if DEBUG
+  ARGV.delete '--debug'
+  ARGV.delete '-d'
+end
+
 class Array
   def count_hash
     h = Hash.new {|h, k| h[k] = 0 }
@@ -78,8 +84,7 @@ SLAVIC = ["Russian",
          ]
 
 def normalize(h)
-  ret = {"Germanic" => 0, "Latin" => 0}
-  ret.default = 0
+  ret = Hash.new {|h, k| h[k] = 0 }
 
   h.each do |lang, v|
     if GERMANIC.include? lang
@@ -147,7 +152,7 @@ def wiktionary(word)
     doc = Nokogiri::HTML f.read
   end
 
-  x = doc.xpath('//*[@id="mw-content-text"]/h3[3]')[0].next_sibling.next_sibling.text
+  x = doc.at('h3:contains("Etymology")').next_sibling.next_sibling.text
   x = x.split /\W+/
   x = x.select {|w, n| w == w.capitalize }
   x = x.count_hash
@@ -161,15 +166,31 @@ rescue
 end
 
 ety = etym_online ARGV[0]
+p "etymonline.com" if DEBUG
+pp ety if DEBUG
+puts puts if DEBUG
 wiki = wiktionary ARGV[0]
+p "wiktionary.com" if DEBUG
+pp wiki if DEBUG
+puts puts if DEBUG
 ety.each {|k, v| wiki[k] += v }
 results = normalize wiki
 
+p "etymonline and wiktionary normalized" if DEBUG
+pp results if DEBUG
+puts puts if DEBUG
+
 if results.all? {|l, v| v == 0 }
   goog = google ARGV[0], "etymology:#{ARGV[0]}", true
+  p "google.com" if DEBUG
+  pp goog if DEBUG
+  puts puts if DEBUG
   results = normalize goog
 end
 
+p "final results normalized" if DEBUG
+pp results if DEBUG
+puts puts if DEBUG
 puts results.sort_by {|l, n| n }.last[0] rescue puts nil
 
 # if ety.nil?
