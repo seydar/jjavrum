@@ -31,28 +31,129 @@ exports.addObject = function(req, res) {
 	if (!req.files.uploadedImage) {
 		res.send(400);
 	}
+	//creates a temporary file from the uploaded file
 	var tempfile = req.files.uploadedImage.path;
+	//creates a name for the file
 	var origname = req.files.uploadedImage.name;
+	//creates a readstream for the file
 	var readstream = fs.createReadStream(tempfile);
-	console.log("here")
+	console.log(req.query)
+
 	imagesDB.open(function(err, imagesDB) {
+		//creates a new gridstore to upload the file to
 		var gridStore =  new GridStore(imagesDB, new ObjectID(), 'w');
 		var fileSize = fs.statSync(tempfile).size
 		gridStore.open(function(err, fileData){
+			//writes file to gridstore
 			gridStore.writeFile(tempfile, function(err, fileData){
 
-				console.log(fileData)
 				assert.equal(null, err);
+				//closes imagesDB after adding the new file
 				imagesDB.close();
+				//gets the fileID to add to the main database object
 				var fileId = fileData["fileId"];
-				console.log(fileId)
-				var longitude = parseFloat(req.query.longitude);
-				var latitude = parseFloat(req.query.latitude);
-				var name = req.query.name;
-				var description = req.query.description;
-				var category = req.query.category;
-				var pickUp = req.query.pickUp;
-				var daysAvailable = parseInt(req.query.available)
+				
+				//parses parameters from the submitted query
+				//checks to make sure all are submitted as part of the query
+				//and none are longer than the maximum length
+				if (req.query.longitude){
+					if (req.query.longitude.length <= 100) {
+						var longitude = parseFloat(req.query.longitude);
+					}
+					else {
+						res.send(403);
+						return;
+					}
+				}
+				else {
+					res.send(403);
+					return;
+				}
+
+				if (req.query.latitude){
+					if (req.query.latitude.length <= 100){
+						var latitude = parseFloat(req.query.latitude);
+					}
+					else {
+						res.send(403);
+						return;
+					}
+				}
+				else {
+					res.send(403);
+					return;
+				}
+				
+				if (req.query.name){
+					if (req.query.name.length <= 120) {
+						var name = req.query.name;
+						console.log(name.length)
+					}
+					else {
+						res.send(403);
+						return;
+					};	
+				}
+				else {
+					res.send(403);
+					return;
+				}
+				
+				if (req.query.description) {
+					if (req.query.description.length <= 1000) {
+						var description = req.query.description
+					}
+					else {
+						res.send(403);
+						return;
+					}	
+				}
+				else {
+					res.send(403);
+					return;
+				}
+				
+				if (req.query.pickUp) {
+					if (req.query.pickUp.length <= 600) {
+						var pickUp = req.query.pickUp;
+					}
+					else {
+						res.send(403);
+						return;
+					}
+				}
+				else {
+					res.send(403);
+					return;
+				}
+				
+				if (req.query.category) {
+					if (req.query.category.length <= 100) {
+						var category = req.query.category;
+					}
+					else {
+						res.send(403);
+						return;
+					}
+				}
+				else {
+					res.send(403);
+					return;
+				}
+
+				if (req.query.available) {
+					if (req.query.available) {
+						var daysAvailable = parseInt(req.query.available)
+					}
+					else {
+						res.send(403);
+						return;
+					}
+				}
+				else {
+					res.send(403);
+					return;
+				}
 				var availableUntil = new Date();
 				availableUntil.setDate(availableUntil.getDate() + daysAvailable);
 				//console.log(availableUntil);
@@ -63,7 +164,9 @@ exports.addObject = function(req, res) {
 							"category":category,"availableUntil":availableUntil, 
 							"available":daysAvailable, "status": "Available", 
 							"time": date, "fileId": fileId};
+				console.log(object)
 
+				//inserts the object into the collection
 				collection.insert(object, function(err, response) {
 					//console.log(response);
 					//console.log(err)

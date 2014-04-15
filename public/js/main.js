@@ -3,12 +3,12 @@
 {
 	//The Map Controller; Create with map initalize
 	var mapController = null;
-    var positionTimer = null;
+        var positionTimer = null;
 	//Holds all trash to be displayed populate with data at load
 	var TrashList = null;
 	//Your current latitude at any given time
 	curLat = 46;
-	//Your current logitutde at any given time
+	//Your current longitude at any given time
 	curLng = 46;
 }
 
@@ -109,7 +109,7 @@ function DataObject(data){
 	function mapInitialize(){
 		if(navigator.geolocation)
 		{
-			navigator.geolocation.getCurrentPosition(function(position){	
+			navigator.geolocation.getCurrentPosition(function(position){
 				curLat = position.coords.latitude;
 				curLng = position.coords.longitude;
 				//Create the Map
@@ -150,19 +150,24 @@ function DataObject(data){
 			i++;     
 		}
 	}
+        
+    function addToList(){
+    $("#accordian").append('<div data-role="collapsible" class="listItem"><h3>Item Name</h3><div class="listImage">Image Goes Here</div><div class="itemInfo"><p>Item Description</p><p>Pick Up Directions</p><p>Time Remaining</p></div></div>');
+    $("#accordian").collapsibleset("refresh");
+}
 }
 
 //List View Code
 {
-    $(document).on("pageint", "#list", function(){
+    $(document).on("pageinit", "#list", function(){
         addToList();
-    })
+    });
 }
 
 /// Map Page View
 {
 	$(document).on("pageinit", "#map", function(){
-	
+
 	//Get the data (from static file for testing)
 	populateTrashList(100000);
 	//Create the map controller and populates the map
@@ -254,44 +259,73 @@ function DataObject(data){
 //code for submitting a post request to the server
 $(document).ready(function() {                      
     var options = { 
-        beforeSubmit:  showRequest,  // pre-submit callback 
-        success:       showResponse,  // post-submit callback 
+        beforeSubmit:  postRequest,  // pre-submit callback 
+        success:       postResponse,  // post-submit callback 
+        error:			postError,
         url: "api/addObject?",
  		resetForm: true
 
-    }; 
- 
-    // bind to the form's submit event 
-    $('#postData').submit(function() { 
-    	console.log(this)
-    	options["url"] += $("#postData").formSerialize();
-    	console.log(options["url"])
-    	console.log($("#postData").formSerialize())
-	    console.log(options)
+    };
 
-        $(this).ajaxSubmit(options); 
- 
-        // !!! Important !!! 
-        // always return false to prevent standard browser submit and page navigation 
-        return false; 
+    //sets default latitude and longitude
+    var latitude = -999;
+    var longitude = -999; 
+
+    //get user's location
+    if (navigator.geolocation) {
+		navigator.geolocation.getCurrentPosition(function(position){	
+			latitude = position.coords.latitude;
+			longitude = position.coords.longitude;
+		})
+	}
+	if (!navigator.geolocation) {
+		alert("Failed to retreive your current location. Please change your location" +
+		"settings and try loading this page again for this page to function properly.");
+			
+	}
+
+    // bind to the form's submit event 
+    $('#postData').submit(function() {
+    	if (latitude == -999 && longitude == -999){
+    		alert("Failed to retreive your current location. Please change your location settings" +
+    			"and try submitting an item again.");
+    		return false;
+    	}
+
+    	//sets post url
+    	options["url"] += $("#postData").formSerialize();
+    	
+		//adds location to post url
+		options["url"] += "&latitude=" + latitude;
+		options["url"] += "&longitude=" + longitude;
+
+		$(this).ajaxSubmit(options); 
+
+		// !!! Important !!! 
+		// always return false to prevent standard browser submit and page navigation 
+		return false; 
     }); 
 }); 
  
 //callback called just before uploading to server
-function showRequest(formData, jqForm, options) { 
+function postRequest(formData, jqForm, options) { 
     // formData is an array; here we use $.param to convert it to a string to display it 
     // but the form plugin does this for you automatically when it submits the data 
     var queryString = $.param(formData);  
-    alert('About to submit: \n\n' + queryString); 
     return true;
 } 
  
 // callback called after successful upload to the server
-function showResponse(responseText, statusText, xhr, $form)  { 
- 
+function postResponse(responseText, statusText, xhr, $form)  { 
     alert('status: ' + statusText + '\n\nresponseText: \n' + responseText + 
-        '\n\nThe output div should have already been updated with the responseText.'); 
-} 
+        '\n\nThe output div should have already been updated with the responseText.');
+	window.location.replace("/") 
+}
+
+function postError() {
+	alert("Error uploading item")
+	window.location.replace("/") 
+}
 
 
 
@@ -334,37 +368,47 @@ function chatOrPic(input){
 
 
 
-//sample get request to retrieve data from the server
-//should be changed to support the user's actual location
+/*gets all items within a set number of miles
+from the user's current location */
 function getRequest() {
-
-	//sample GET request
-	var latitude = -30.343;
-	var longitude = 23.345;
-	var distance = 500000000000;
-	var getUrl = "api/getObjects?latitude=" + latitude + "&longitude=" + longitude + "&distance=" + distance
-	$.ajax({
-		url: getUrl,
-		type: "GET",
-		error: function(xhr, status){
-			alert("Error")
-		},
-		success: function(result){
-			//this is an example of how the returned data can be used to display an image
-			//see img tag in index.html
-			var $picture = $('#picture');
-			alert("Successful get!")
-			console.log(result);
-			//console.log(result[0]["image"])
-			$picture.attr("src", "data:image/jpg;base64," + result[0]["image"])
-		}
-	})
+	console.log("here")
+	//uses navigator to find get user's current position
+	if(navigator.geolocation) {
+		console.log("here")
+		console.log(navigator)
+		navigator.geolocation.getCurrentPosition(function(position){	
+			console.log("here")
+			var latitude = position.coords.latitude;
+			var longitude = position.coords.longitude;
+			//change distance to better number?
+			//ideas for best choice? 
+			var distance = 100;
+			var getUrl = "api/getObjects?latitude=" + latitude + "&longitude=" + longitude + "&distance=" + distance
+			$.ajax({
+				url: getUrl,
+				type: "GET",
+				error: function(xhr, status){
+					alert("Error")
+				},
+				success: function(result){
+					//this is an example of how the returned data can be used to display an image
+					//see img tag in index.html
+					var $picture = $('#picture');
+					alert("Successful get!")
+					console.log(result);
+					//console.log(result[0]["image"])
+					$picture.attr("src", "data:image/jpg;base64," + result[0]["image"])
+				}
+			})
+		})
+	}
 }
 
 
 /*
-	//sample DELETE request
-	//set deleteId equal to object's _id field*/
+sample DELETE request
+set deleteId equal to object's _id field
+*/
 function deleteRequest() {
 	var deleteId = "53421b267608b78025000001";
 	$.ajax({
@@ -378,9 +422,4 @@ function deleteRequest() {
             
         }
 	})
-}
-
-function addToList(){
-    var item = $("listItem").clone(true);
-    $("#accordian").append(item);
 }

@@ -40,46 +40,55 @@
 					
 					<button onclick="deleteRequest()"> Test delete request </button>
 
-                                        <a href="#list" data-role="button" data-transition="slide">Example List View</a>
+                    <a href="#list" data-role="button" data-transition="slide">Example List View</a>
 
 				</div>
 			</div>
 		
-		 <!-- newly added for testing purposes-->
 		 <div data-role="page" id="give">
 		 	<div data-role="content">
 		 		<h1><span>Give An Item</span></h1>
 		 		<form id = "postData" enctype="multipart/form-data" method="post">
 		 			<label for="name"> Item Name: </label>
-		 			<input type="text" name="name" id="name" value=""/>
+		 			<input type="text" name="name" id="name" value="" maxlength="120"/>
 
 		 			<label for="category"> Item Category: </label>
-		 			<input type="text" name="category" id="category" value=""/>
+		 			<select type="text" name="category" id="category" value="">
+		 				<option value="Furniture"> Furniture </option>
+		 				<option value="Electronics"> Electronics </option>
+		 				<option value="Clothing"> Clothing </option>
+		 				<option value="Other"> Other </option>
+		 			</select>
+
 
 		 			<label for="description"> Description: </label>
-		 			<textarea name="description" id="description" value=""></textarea>
+		 			<textarea name="description" id="description" value="" maxlength="1000"></textarea>
 		 			
 		 			<label for="pickUp">Pick Up Instructions:</label>
-		 			<textarea name="pickUp" id="pickUp" value=""></textarea>
+		 			<textarea name="pickUp" id="pickUp" value="" maxlength="600"></textarea>
 
-		 			<label for="available"> Time Available: </label>
-		 			<input type = "text" name="available" id="available" value=""/>
+		 			<label for="available"> Days Available: </label>
+		 			<select type = "text" name="available" id="available" value="">
+		 				<option value="1"> 1 </option>
+		 				<option value="2"> 2 </option>
+		 				<option value="3"> 3 </option>
+		 				<option value="4"> 4 </option>
+		 				<option value="5"> 5 </option>
+		 				<option value="6"> 6 </option>
+		 				<option value="7"> 7 </option>
+		 			</select>
 
-	 				<button type="button" id="chatPicButt" class="ui-btn ui-shadow" value="picture" onclick="chatOrPic(this)">Take Picture</button>
+		 			<!--divider to add space between elements-->
+	 				<div style="height:13px; width:auto;"> </div>
 
+	 				<button type="button" id="chatPicButt" class="ui-btn ui-shadow" value="picture" onclick="chatOrPic(this)">Add Picture</button>
+
+	 			
 					<input data-role="none" type="file" name="uploadedImage" id="uploadedImage" style="visibility: hidden;"/>
-
-					<input type="text" name="latitude" id="latitude" value="32.232" style="display: none;">
-					<input type="text" name="longitude" id="longitude" value="43.232" style="display: none;">
-
-					<!-- Fill these in with calls to maps API -->
 
 		 			<button name = "submit" id="submit"> Submit </button>
 
 		 		</form>
-		 		<!--For test purposes only-->
-		 		<span> Current version does not get user's location and uses a default value instead.
-		 		This will change in future updates </span>
 		 	</div>
 		 </div>
 
@@ -105,24 +114,20 @@
 		</div>
                  
                  <div data-rol="page" id="list">
-                     <div id="accordian" data-role="collapsible-set" data-theme="a" data-content-theme="a">
+                     <div id="accordian" data-role="collapsible-set" data-theme="b" data-content-theme="a">
                          <div data-role="collapsible" class="listItem">
-                             <div background-color="blue" height="50px" width="50px" float="left">Image Goes Here</div>
-                                <h3>Item Name</h3>
+                             <h3>Item Name</h3>
+                             <div class="listImage">Image Goes Here</div>
+                             <div class="itemInfo">
                                 <p>Item Description</p>
                                 <p>Pick Up Directions</p>
                                 <p>Time Remaining</p>
+                             </div>
                          </div>
-                         <div data-role="collapsible" class="listItem">
-                             <div background-color="blue" height="50px" width="50px" float="left">Image Goes Here</div>
-                                <h3>Item Name</h3>
-                                <p>Item Description</p>
-                                <p>Pick Up Directions</p>
-                                <p>Time Remaining</p>
-                         </div>
-                     </div>
+                     
+                    </div>
+                    <button onclick="addToList()"> Test Adding to list </button>
                  </div>
-	
 	</body>
 	
 </html>
