@@ -3,7 +3,7 @@
 {
 	//The Map Controller; Create with map initalize
 	var mapController = null;
-        var positionTimer = null;
+	var positionTimer = null;
 	//Holds all trash to be displayed populate with data at load
 	var TrashList = null;
 	//Your current latitude at any given time
