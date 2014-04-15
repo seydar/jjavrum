@@ -51,26 +51,42 @@
 		 		<h1><span>Give An Item</span></h1>
 		 		<form id = "postData" enctype="multipart/form-data" method="post">
 		 			<label for="name"> Item Name: </label>
-		 			<input type="text" name="name" id="name" value=""/>
+		 			<input type="text" name="name" id="name" value="" maxlength="120"/>
 
 		 			<label for="category"> Item Category: </label>
-		 			<input type="text" name="category" id="category" value=""/>
+		 			<select type="text" name="category" id="category" value="">
+		 				<option value="Furniture"> Furniture </option>
+		 				<option value="Electronics"> Electronics </option>
+		 				<option value="Clothing"> Clothing </option>
+		 				<option value="Other"> Other </option>
+		 			</select>
+
 
 		 			<label for="description"> Description: </label>
-		 			<textarea name="description" id="description" value=""></textarea>
+		 			<textarea name="description" id="description" value="" maxlength="1000"></textarea>
 		 			
 		 			<label for="pickUp">Pick Up Instructions:</label>
-		 			<textarea name="pickUp" id="pickUp" value=""></textarea>
+		 			<textarea name="pickUp" id="pickUp" value="" maxlength="600"></textarea>
 
-		 			<label for="available"> Time Available: </label>
-		 			<input type = "text" name="available" id="available" value=""/>
+		 			<label for="available"> Days Available: </label>
+		 			<select type = "text" name="available" id="available" value="">
+		 				<option value="1"> 1 </option>
+		 				<option value="2"> 2 </option>
+		 				<option value="3"> 3 </option>
+		 				<option value="4"> 4 </option>
+		 				<option value="5"> 5 </option>
+		 				<option value="6"> 6 </option>
+		 				<option value="7"> 7 </option>
+		 			</select>
 
-	 				<button type="button" id="chatPicButt" class="ui-btn ui-shadow" value="picture" onclick="chatOrPic(this)">Take Picture</button>
+		 			<!--divider to add space between elements-->
+	 				<div style="height:13px; width:auto;"> </div>
 
+	 				<button type="button" id="chatPicButt" class="ui-btn ui-shadow" value="picture" onclick="chatOrPic(this)">Add Picture</button>
+
+	 			
 					<input data-role="none" type="file" name="uploadedImage" id="uploadedImage" style="visibility: hidden;"/>
 
-					<input type="text" name="latitude" id="latitude" value="32.232" style="display: none;">
-					<input type="text" name="longitude" id="longitude" value="43.232" style="display: none;">
 
 					<!-- Fill these in with calls to maps API -->
 
