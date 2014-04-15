@@ -3,7 +3,7 @@
 {
 	//The Map Controller; Create with map initalize
 	var mapController = null;
-        var positionTimer = null;
+    var positionTimer = null;
 	//Holds all trash to be displayed populate with data at load
 	var TrashList = null;
 	//Your current latitude at any given time
@@ -103,7 +103,7 @@ function DataObject(data){
     }
 }
 
-/// Controller Code (domain specific)
+/// Controller Code (Domain Specific)
 {
 	//initalize the map and sets up location finding services
 	function mapInitialize(){
@@ -114,8 +114,6 @@ function DataObject(data){
 				curLng = position.coords.longitude;
 				//Create the Map
 				mapController = new MapCont('map-canvas', curLat, curLng, 17);
-				//Add position Marker 
-				mapController.addMarker(curLat, curLng, -1);
 				//Add the entrire TrashList to the map
 				mapController.populateMap();
 				//Set up the positionTimer to watch and update our position
@@ -123,9 +121,11 @@ function DataObject(data){
 					// Update Curent Position		
 					curLat = position.coords.latitude;
 					curLng = position.coords.longitude;
-					if (mapController = NULL){
+					if (mapController != NULL){
+						mapController.updateMarker(mapController.positionMarker, curLat, curLng);
 					}
-				});
+				}, function(){
+							},{maximumAge: 0, timeout: 10000, enableHighAccuracy : true});
 			
 			});
 		} 
@@ -158,7 +158,8 @@ function DataObject(data){
         addToList();
     })
 }
-/// Map Page View//Controller Code
+
+/// Map Page View
 {
 	$(document).on("pageinit", "#map", function(){
 	
@@ -188,6 +189,10 @@ function DataObject(data){
 				panControl: false
 			}
 			this.map = new google.maps.Map(document.getElementById(this.canvas), this.options);	
+			this.positionMarker = new google.maps.Marker({
+				position: new google.maps.LatLng(curLat, curLng),
+				map: this.map
+				});
 		}
 		
 		//adds a marker to the map
@@ -232,9 +237,17 @@ function DataObject(data){
 				i++;     
 			}
 		}
+
+		MapCont.prototype.updateMarker = function (marker, latitude, longitude){
+		    marker.setPosition(
+		        new google.maps.LatLng(
+		        latitude,
+		        longitude
+		        )
+		    );
+		}
 		
-	}//End of MapCont Class
-	
+	}//End of MapCont Class	
 }//End of Map Code
 
 
