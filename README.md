@@ -13,7 +13,7 @@ jjavrum
 
 All #s will have to be normalized according to text size
 
-* word etymology
+* word etymology, Ari
 * avg sentence length - Jordan, DONE
 * avg word length - Jordan, DONE
 * # of passive vs # of active
@@ -27,7 +27,7 @@ All #s will have to be normalized according to text size
   -> breadth
 * avg percentile position of subject
 * avg percentile position of verb
-* # of words not in dictionary (foreign words, degrammaticization)
+* # of words not in dictionary (foreign words, degrammaticization), Jen
 * frequency list of n-grams (1, 2, 3 word phrases) - Jordan, DONE
   -> take top 5, cut down if results are better
 * "writing down the word" vs "writing the word down"

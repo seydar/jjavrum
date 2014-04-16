@@ -2,19 +2,26 @@ from __future__ import print_function
 import nltk.data
 import sys
 import nltk
+import os
+import operator
 from nltk import tokenize
 from nltk import word_tokenize
+#from nltk.parse  import stanford
 from nltk.tag import pos_tag
 from collections import Counter
+#os.environ['STANFORD_PARSER'] = 'C:/stanford-parser-2012-11-12'
+#os.environ['STANFORD_MODELS'] = 'C:/stanford-parser-2012-11-12'
+#parser = stanford.StanfordParser(model_path="C:/stanford-parser-2012-11-12/edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz")
 
 
 
 
 
-class StructureParser:
+class FeaturesAnalyzer:
 	def __init__(self, filePath):
 		self.fileObj = open(fileName, 'r')
-		self.fileString = self.fileObj.read()
+		undecodedString = self.fileObj.read()
+		self.fileString = undecodedString.decode('utf-8')
 		self.fileStringCounter = Counter(self.fileString)
 		self.sentences = tokenize.sent_tokenize(self.fileString)
 		self.numSentences = len(self.sentences)
@@ -26,6 +33,9 @@ class StructureParser:
 		self.quotationRate = self.findQuotationRate()
 		self.conjunctionRate = self.findConjunctionRate()
 		self.wordLength = self.findWordLength()
+		self.topUnigrams = self.findTopUnigrams()
+		self.topBigrams = self.findTopBigrams()
+		self.topTrigrams = self.findTopTrigrams()
 	
 	def defineTokens(self):
 		tokens = []
@@ -79,6 +89,42 @@ class StructureParser:
 				totalWordLength += len(word)
 		return float(totalWordLength)/totalWords
 
+	def findTopUnigrams(self):
+		unigramsDict = {}
+		for unigram in self.tokens:
+			encodedUnigram = unigram.encode('utf-8')
+			if encodedUnigram in unigramsDict:
+				unigramsDict[encodedUnigram] += 1
+			else:
+				unigramsDict[encodedUnigram] = 1
+		sortedUnigrams = sorted(unigramsDict.iteritems(), key=operator.itemgetter(1), reverse=True)
+		return sortedUnigrams[:10]
+
+	def findTopBigrams(self):
+		bigramsDict = {}
+		bigrams = nltk.bigrams(self.tokens)
+		for bigram in bigrams:
+			encodedBigram = (bigram[0].encode("utf-8"), bigram[1].encode("utf-8"))
+			if encodedBigram in bigramsDict:
+				bigramsDict[encodedBigram] += 1
+			else:
+				bigramsDict[encodedBigram] = 1
+		sortedBigrams = sorted(bigramsDict.iteritems(), key=operator.itemgetter(1), reverse=True)
+		return sortedBigrams[:10]
+
+	def findTopTrigrams(self):
+		trigramsDict = {}
+		trigrams = nltk.trigrams(self.tokens)
+		for trigram in trigrams:
+			encodedTrigram = (trigram[0].encode("utf-8"), trigram[1].encode("utf-8"), trigram[2].encode("utf-8"))
+			if encodedTrigram in trigramsDict:
+				trigramsDict[encodedTrigram] += 1
+			else:
+				trigramsDict[encodedTrigram] = 1
+		sortedTrigrams = sorted(trigramsDict.iteritems(), key=operator.itemgetter(1), reverse=True)
+		return sortedTrigrams[:10]
+
+
 	#don't print out new line character at end
 	def printPretty(self):
 		print("average sentence length: " + str(self.sentenceLength))
@@ -88,6 +134,10 @@ class StructureParser:
 		print("quotation marks per sentence: " + str(self.quotationRate))
 		print("conjunctations per sentence: " + str(self.conjunctionRate))
 		print("average word length: " + str(self.wordLength))
+		print("most common unigrams: " + str(self.topUnigrams))
+		print("most common bigrams: " + str(self.topBigrams))
+		print("most common trigrams: " + str(self.topTrigrams))
+
 
 	def printComputer(self):
 		print(str(self.sentenceLength))
@@ -96,13 +146,24 @@ class StructureParser:
 		print(str(self.colonRate))
 		print(str(self.quotationRate))
 		print(str(self.conjunctionRate))
-		print(str(self.wordLength), end = "")
+		print(str(self.wordLength))
+		print(str(self.topUnigrams))
+		print(str(self.topBigrams))
+		print(str(self.topTrigrams), end = "")
 
 if __name__ == "__main__":
 	fileName = sys.argv[-1]
-	structureParser = StructureParser(fileName)
-	structureParser.printPretty()
-	structureParser.printComputer()
+	#print(parser)
+	#methods = [method for method in dir(parser) if callable(getattr(parser, method))]
+	#print(methods)
+	#sentences = parser.raw_parse("Hello, My name is Melroy.", "What is your name?")
+	#print(sentences)
+
+
+	
+	featuresAnalyzer = FeaturesAnalyzer(fileName)
+	featuresAnalyzer.printPretty()
+	featuresAnalyzer.printComputer()
 
 #install punkt package to get this to work.
 #Uncomment nltk.download()
