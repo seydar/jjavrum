@@ -13,12 +13,12 @@ jjavrum
 
 All #s will have to be normalized according to text size
 
-x word etymology
-x avg sentence length
-x avg word length
-x # of passive vs # of active
-x # of punctuation
-x # of conjunctions
+* word etymology, Ari
+* avg sentence length - Jordan, DONE
+* avg word length - Jordan, DONE
+* # of passive vs # of active
+* # of punctuation - Jordan, DONE
+* # of conjunctions - Jordan, DONE
 * sentence structure (when viewed as dependency graph)
   -> max depth
   -> avg depth
@@ -27,8 +27,8 @@ x # of conjunctions
   -> breadth
 * avg percentile position of subject
 * avg percentile position of verb
-x # of words not in dictionary (foreign words, degrammaticization)
-x frequency list of n-grams (1, 2, 3 word phrases)
+* # of words not in dictionary (foreign words, degrammaticization), Jen
+* frequency list of n-grams (1, 2, 3 word phrases) - Jordan, DONE
   -> take top 5, cut down if results are better
 * "writing down the word" vs "writing the word down"
 
