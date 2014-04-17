@@ -57,7 +57,9 @@ def find_and_print_passives(fn):
     collect_passive_sents = []
     with open(fn) as f:
         text = f.read()
-        sentences = punkt.tokenize(text)
+        textDecoded = text.decode('utf-8')
+
+        sentences = punkt.tokenize(textDecoded)
         for sent in sentences:
             tagged = tag_sentence(sent)
             tags = map( lambda(tup): tup[1], tagged)
@@ -72,7 +74,9 @@ def find_and_print_passives(fn):
 def avg_percentage_passives(fn):
     with open(fn) as f:
         text = f.read()
-        sentences = punkt.tokenize(text)
+        textDecoded = text.decode('utf-8')
+
+        sentences = punkt.tokenize(textDecoded)
         total_sent_num = len(sentences)
         passive_num = float(len(find_and_print_passives(fn)))/total_sent_num
         percentage_passive = (passive_num * 100)
@@ -81,7 +85,8 @@ def avg_percentage_passives(fn):
 def avg_percentage_active(fn):
     with open(fn) as f:
         text = f.read()
-        sentences = punkt.tokenize(text)
+        textDecoded = text.decode('utf-8')
+        sentences = punkt.tokenize(textDecoded)
         total_sent_num = len(sentences)
         active_num = total_sent_num - float(len(find_and_print_passives(fn)))
         percentage_active = (((active_num/total_sent_num)) * 100)
@@ -97,8 +102,8 @@ def main():
     #     repl()
     fileName = sys.argv[-1]
 
-    avg_percentage_passives(fn)
-    avg_percentage_active(fn)
+    avg_percentage_passives(fileName)
+    avg_percentage_active(fileName)
 
 if __name__ == "__main__":
     main()
