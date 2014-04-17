@@ -37,3 +37,9 @@ All #s will have to be normalized according to text size
 Collect features for individual papers (that is the smallest unit) as well
 as a writer's cumulative anthology
 
+# Questions
+
+* How can we represent the nature of trees (sentence structure)?
+* How can we identify which author uses what subset of the English language?
+  -> How can we represent a subset of a set without identifying the elements?
+
