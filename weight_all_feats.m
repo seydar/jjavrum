@@ -4,7 +4,7 @@ function [author1_rate author2_rate] = weight_all_feats(author_1, author_2, w, f
   % length(feat_names) = L, too
   % T is our "sureness" threshold - 
 
-  feat_names = {'corner_thresh' 'edge_hist' 'blobs' 'hog' 'color_hist' 'lbp' 'sift'};
+  feat_names = {'ety'};
 
   db = db_setup('.');
 
@@ -18,7 +18,8 @@ function [author1_rate author2_rate] = weight_all_feats(author_1, author_2, w, f
     pa1 = db.get_paper(firsts(i).name); % get the ith paper
     pa1_feats = {};
     for j = 1:(length(w)-1)
-      pa1_feats = [pa1_feats pa1.features.(feat_names{j})]; % make a ROW of the features for each
+      % make a ROW of the features for each
+      pa1_feats = [pa1_feats pa1.features.(feat_names{j})];
     end
     first_feats = [first_feats; pa1_feats];
   end
@@ -40,9 +41,11 @@ function [author1_rate author2_rate] = weight_all_feats(author_1, author_2, w, f
   for i = 1:(length(w)-1)
     ff = [];
     sf = [];
+
     for j = 1:length(f_train)
       ff = [ff; first_feats{j,i}];
     end
+
     for j = 1:length(s_train)
       sf = [sf; second_feats{j,i}];
     end
@@ -50,26 +53,15 @@ function [author1_rate author2_rate] = weight_all_feats(author_1, author_2, w, f
     svms = [svms svmtrain([ff; sf], key)];
   end
 
-  [sift_svms, art_trees, codebooks] = create_sift_svm(author_1, author_2, f_train, s_train);
-  
-  disp('created sift_svms successfully');
-  
-  
   author1_rate = [];
   author2_rate = [];
-  
+
   for i=f_test(1:end)
     pa = db.get_paper(firsts(i).name);
     wsum = 0;
     for j=1:length(w)
-      if(strcmp(feat_names{j},'sift') == 0)
-        if (svmclassify(svms{j}, pa.features.(feat_names{j})) == 0)
-          wsum = wsum + w(j);
-        end
-      else
-        if(sift_vote(sift_svms, pa, art_trees,codebooks) == 0)
-          wsum = wsum + w(j);
-        end
+      if (svmclassify(svms{j}, pa.features.(feat_names{j})) == 0)
+        wsum = wsum + w(j);
       end
     end
     if wsum >= T
@@ -83,14 +75,8 @@ function [author1_rate author2_rate] = weight_all_feats(author_1, author_2, w, f
     pa = db.get_paper(seconds(i).name);
     wsum = 0;
     for j=1:length(w)
-      if(strcmp(feat_names{j},'sift') == 0)
-        if (svmclassify(svms{j}, pa.features.(feat_names{j})) == 1)
-          wsum = wsum + w(j);
-        end
-      else
-        if(sift_vote(sift_svms, pa, art_trees,codebooks) == 1)
-          wsum = wsum + w(j);
-        end
+      if (svmclassify(svms{j}, pa.features.(feat_names{j})) == 1)
+        wsum = wsum + w(j);
       end
     end
     if wsum >= T

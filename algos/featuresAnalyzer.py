@@ -3,6 +3,8 @@ import nltk.data
 import sys
 import nltk
 import os
+import re
+import string
 import operator
 import re
 from nltk import tokenize
@@ -25,6 +27,7 @@ class FeaturesAnalyzer:
 		self.fileObj = open(fileName, 'r')
 		undecodedString = self.fileObj.read()
 		self.fileString = undecodedString.decode('utf-8')
+		self.fileString = string.replace(self.fileString, '\xe2\x80\x99'.decode('utf-8'), '\'')
 		self.fileStringCounter = Counter(self.fileString)
 		self.sentences = tokenize.sent_tokenize(self.fileString)
 		self.numSentences = len(self.sentences)
@@ -45,6 +48,7 @@ class FeaturesAnalyzer:
 		tokens = []
 		for sentence in self.sentences:
 			sentenceTokens = nltk.word_tokenize(sentence)
+			sentenceTokens = [t for t in sentenceTokens if re.search('\w+', t)]
 			tokens.extend(sentenceTokens)
 		return tokens
 
@@ -127,6 +131,18 @@ class FeaturesAnalyzer:
 				trigramsDict[encodedTrigram] = 1
 		sortedTrigrams = sorted(trigramsDict.iteritems(), key=operator.itemgetter(1), reverse=True)
 		return sortedTrigrams[:10]
+
+	def printTopUnigrams(self):
+		for gram in self.topUnigrams:
+			print(gram[0], gram[1])
+
+	def printTopBigrams(self):
+		for gram in self.topBigrams:
+			print(gram[0][0], gram[0][1], gram[1])
+
+	def printTopTrigrams(self):
+		for gram in self.topTrigrams:
+			print(gram[0][0], gram[0][1], gram[0][2], gram[1])
 	
 	def setAvgPositions(self):
 		totalSubjPercent = 0
@@ -246,6 +262,7 @@ class FeaturesAnalyzer:
 		print(str(self.avgVerbPos))
 		print(str(self.avgMaxDepth), end = "")
 
+
 if __name__ == "__main__":
 	fileName = sys.argv[-1]
 	#print(parser)
@@ -259,6 +276,7 @@ if __name__ == "__main__":
 	featuresAnalyzer = FeaturesAnalyzer(fileName)
 	#featuresAnalyzer.printPretty()
 	featuresAnalyzer.printComputer()
+
 
 	#featuresAnalyzer.printPretty()
 	#featuresAnalyzer.printComputer()

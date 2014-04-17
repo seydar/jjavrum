@@ -1,7 +1,7 @@
 function [db] = produce_features(base)
 
   if matlabpool('size') == 0
-	  %matlabpool open;
+    %matlabpool open;
   end
 
   db = db_setup(base);  
@@ -18,17 +18,12 @@ function [db] = produce_features(base)
   tic
 
 
-  parfor i = 1:size(new, 2)
-	disp(['Paper #: ' num2str(i)]);
+  for i = 1:size(new, 2)
     paper = db.get_paper(new{i});
+    disp(['Paper: ' paper.name]);
 
-    % paper.add_feature('fsa', fsa(paper.paper));
-    % paper.add_feature('edge_hist', edge_hist(paper.paper));
-	  % paper.add_feature('lbp', lbp_features(paper.paper));
-    % paper.add_feature('corners', corners(paper.paper, 0.45));
-    % paper.add_feature('blobs', blobs(paper.paper, 1600));
-    % paper.add_feature('color_palette', color_palette(paper.paper);
-    % paper.add_feature('color_hist', color_hist(paper.paper, 10));
+    % paper.add_feature('fsa', fsa(paper));
+    paper.add_feature('ety', ety(paper));
     paper.save_me();
   end
   toc;
