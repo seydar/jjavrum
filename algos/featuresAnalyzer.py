@@ -149,6 +149,7 @@ class FeaturesAnalyzer:
 		totalVerbPercent = 0
 		totalLength = 0
 		totalDepth = 0
+		totalNodes = 0
 
 		for sentence in self.sentences:
 			command = 'java -classpath stanford-parser.jar;stanford-parser-3.3.1-models.jar -mx200m edu.stanford.nlp.parser.lexparser.LexicalizedParser -retainTMPSubcategories -outputFormat "wordsAndTags,penn,typedDependencies" stanford-parser-3.3.1-models/edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz'
@@ -174,6 +175,7 @@ class FeaturesAnalyzer:
 					singleCloseParanth = len(singleClosingChar.findall(tag))
 					closingDif = closedParanth - singleCloseParanth
 					addNumber = 0
+					totalNodes += openParanth
 
 					if (singleCloseParanth > 0):
 						addNumber = 1
@@ -212,7 +214,12 @@ class FeaturesAnalyzer:
 						verbPos = verb[verbDashPos+1:]
 						#print(verbPos)
 						#print(subjPos)
+						subjPos = subjPos.replace("'","")
+						verbPos = verbPos.replace("'","")
 						if lastSubj != subj:
+							#print(tag)
+							#print(subj)
+							#print(subjPos)
 							totalSubjPercent += float(subjPos)/sentenceLength
 						
 						if lastVerb != verb:
@@ -225,9 +232,11 @@ class FeaturesAnalyzer:
 		avgSubjPos = totalSubjPercent/self.numSentences
 		avgVerbPos = totalVerbPercent/self.numSentences
 		avgMaxDepth = float(totalDepth)/self.numSentences
+		avgNodes = float(totalNodes)/self.numSentences
 		self.avgSubjPos = avgSubjPos
 		self.avgVerbPos = avgVerbPos
 		self.avgMaxDepth = avgMaxDepth
+		self.avgNodes = avgNodes
 		#print(avgSubjPos)
 		#print(avgVerbPos)
 		#print(avgMaxDepth)
@@ -246,6 +255,7 @@ class FeaturesAnalyzer:
 		print("average position of subject: " + str(self.avgSubjPos))
 		print("average position of verb: " + str(self.avgVerbPos))
 		print("average max depth: " + str(self.avgMaxDepth))
+		print("average nodes: " + str(self.avgNodes))
 
 	def printComputer(self):
 		print(str(self.sentenceLength))
@@ -260,7 +270,8 @@ class FeaturesAnalyzer:
 		print(str(self.topTrigrams))
 		print(str(self.avgSubjPos))
 		print(str(self.avgVerbPos))
-		print(str(self.avgMaxDepth), end = "")
+		print(str(self.avgMaxDepth))
+		print(str(self.avgNodes), end = "")
 
 
 if __name__ == "__main__":

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 jjavrum
 =======
 
@@ -43,3 +44,9 @@ as a writer's cumulative anthology
 * How can we identify which author uses what subset of the English language?
   -> How can we represent a subset of a set without identifying the elements?
 
+=======
+JusTake
+=======
+
+Repo for the EECS493 final group assignment
+>>>>>>> 55c8a5bc5b8e35312c8aab43f9ed211c8f8327b4

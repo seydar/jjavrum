@@ -1,0 +1,1949 @@
+nsubj(Larry-19, Lear-1)
+
+Lear-1
+1
+nsubj(suffers-7, man-5)
+
+man-5
+5
+nsubj(bent-26, brute-23)
+
+brute-23
+23
+nsubj(Larry-19, Lear-1)
+
+Lear-1
+1
+nsubj(suffers-7, man-5)
+
+man-5
+5
+nsubj(bent-26, brute-23)
+
+brute-23
+23
+nsubj(Larry-19, Lear-1)
+
+Lear-1
+1
+nsubj(suffers-7, man-5)
+
+man-5
+5
+nsubj(bent-26, brute-23)
+
+brute-23
+23
+nsubj(fold-2, I-1)
+
+I-1
+1
+nsubj(fold-2, I-1)
+
+I-1
+1
+nsubj(fold-2, I-1)
+
+I-1
+1
+nsubj(four-6, I-1)
+
+I-1
+1
+nsubj(four-6, I-1)
+
+I-1
+1
+nsubj(four-6, I-1)
+
+I-1
+1
+nsubj(four-6, I-1)
+
+I-1
+1
+nsubj(four-6, I-1)
+
+I-1
+1
+nsubj(dazzle-6, stories-2)
+
+stories-2
+2
+nsubj(sit-11, I-10)
+
+I-10
+10
+nsubj(dazzle-6, stories-2)
+
+stories-2
+2
+nsubj(sit-11, I-10)
+
+I-10
+10
+nsubj(dazzle-6, stories-2)
+
+stories-2
+2
+nsubj(sit-11, I-10)
+
+I-10
+10
+nsubjpass(flattered-7, I-1)
+
+I-1
+1
+nsubjpass(flattered-7, I-1)
+
+I-1
+1
+nsubj(wondered-2, I-1)
+
+I-1
+1
+nsubj(skirt-4, ~-1)
+
+~-1
+1
+nsubj(wondered-2, I-1)
+
+I-1
+1
+nsubj(skirt-4, ~-1)
+
+~-1
+1
+nsubj(wondered-2, I-1)
+
+I-1
+1
+nsubj(skirt-4, ~-1)
+
+~-1
+1
+nsubj(wondered-2, I-1)
+
+I-1
+1
+nsubj(skirt-4, ~-1)
+
+~-1
+1
+nsubj(laugh-2, We-1)
+
+We-1
+1
+nsubj(wonder-11, I-10)
+
+I-10
+10
+nsubj(is-17, DiMaggio-16)
+
+DiMaggio-16
+16
+nsubj(laugh-2, We-1)
+
+We-1
+1
+nsubj(wonder-11, I-10)
+
+I-10
+10
+nsubj(is-17, DiMaggio-16)
+
+DiMaggio-16
+16
+nsubj(laugh-2, We-1)
+
+We-1
+1
+nsubj(wonder-11, I-10)
+
+I-10
+10
+nsubj(is-17, DiMaggio-16)
+
+DiMaggio-16
+16
+nsubj(laugh-2, We-1)
+
+We-1
+1
+nsubj(wonder-11, I-10)
+
+I-10
+10
+nsubj(is-17, DiMaggio-16)
+
+DiMaggio-16
+16
+nsubj(laugh-2, We-1)
+
+We-1
+1
+nsubj(wonder-11, I-10)
+
+I-10
+10
+nsubj(is-17, DiMaggio-16)
+
+DiMaggio-16
+16
+nsubj(laugh-2, We-1)
+
+We-1
+1
+nsubj(wonder-11, I-10)
+
+I-10
+10
+nsubj(is-17, DiMaggio-16)
+
+DiMaggio-16
+16
+nsubj(laugh-2, We-1)
+
+We-1
+1
+nsubj(wonder-11, I-10)
+
+I-10
+10
+nsubj(is-17, DiMaggio-16)
+
+DiMaggio-16
+16
+nsubj(grew-2, Mama-1)
+
+Mama-1
+1
+nsubj(grew-2, Mama-1)
+
+Mama-1
+1
+nsubj(grew-2, Mama-1)
+
+Mama-1
+1
+nsubj(FDR-12, atheist-3)
+
+atheist-3
+3
+nsubj(religion-10, Party-7)
+
+Party-7
+7
+nsubj(FDR-12, atheist-3)
+
+atheist-3
+3
+nsubj(religion-10, Party-7)
+
+Party-7
+7
+nsubj(FDR-12, atheist-3)
+
+atheist-3
+3
+nsubj(religion-10, Party-7)
+
+Party-7
+7
+nsubj(FDR-12, atheist-3)
+
+atheist-3
+3
+nsubj(religion-10, Party-7)
+
+Party-7
+7
+nsubj(FDR-12, atheist-3)
+
+atheist-3
+3
+nsubj(religion-10, Party-7)
+
+Party-7
+7
+nsubj(do-4, you-3)
+
+you-3
+3
+nsubj(do-4, you-3)
+
+you-3
+3
+nsubj(do-4, you-3)
+
+you-3
+3
+nsubj(do-4, you-3)
+
+you-3
+3
+nsubj(do-4, you-3)
+
+you-3
+3
+nsubj(seems-7, life-5)
+
+life-5
+5
+nsubj(imagine-2, I-1)
+
+I-1
+1
+nsubj(imagine-2, I-1)
+
+I-1
+1
+nsubj(imagine-2, I-1)
+
+I-1
+1
+nsubj(imagine-2, I-1)
+
+I-1
+1
+nsubj(imagine-2, I-1)
+
+I-1
+1
+nsubj(wine-2, Businessmen-1)
+
+Businessmen-1
+1
+nsubj(wine-2, Businessmen-1)
+
+Businessmen-1
+1
+nsubj(wine-2, Businessmen-1)
+
+Businessmen-1
+1
+nsubj(chain-smokes-2, She-1)
+
+She-1
+1
+nsubj(60-7, she-5)
+
+she-5
+5
+nsubj(chain-smokes-2, She-1)
+
+She-1
+1
+nsubj(60-7, she-5)
+
+she-5
+5
+nsubj(chain-smokes-2, She-1)
+
+She-1
+1
+nsubj(60-7, she-5)
+
+she-5
+5
+nsubj(chain-smokes-2, She-1)
+
+She-1
+1
+nsubj(60-7, she-5)
+
+she-5
+5
+nsubj(chain-smokes-2, She-1)
+
+She-1
+1
+nsubj(60-7, she-5)
+
+she-5
+5
+nsubj(chain-smokes-2, She-1)
+
+She-1
+1
+nsubj(60-7, she-5)
+
+she-5
+5
+nsubj(amazing-4, This-1)
+
+This-1
+1
+nsubj(shouts-3, Mama-1)
+
+Mama-1
+1
+nsubj(shouts-3, Mama-1)
+
+Mama-1
+1
+nsubj(shouts-3, Mama-1)
+
+Mama-1
+1
+nsubj(shouts-3, Mama-1)
+
+Mama-1
+1
+nsubj('re-4, you-3)
+
+you-3
+3
+nsubj('re-4, you-3)
+
+you-3
+3
+nsubj(eat-3, We-1)
+
+We-1
+1
+nsubj(eat-3, We-1)
+
+We-1
+1
+nsubj(eat-3, We-1)
+
+We-1
+1
+nsubj(wait-4, I-1)
+
+I-1
+1
+nsubj(wait-4, I-1)
+
+I-1
+1
+nsubj(ends-3, FaceTime-2)
+
+FaceTime-2
+2
+nsubj(goes-7, screen-6)
+
+screen-6
+6
+nsubj(ends-3, FaceTime-2)
+
+FaceTime-2
+2
+nsubj(goes-7, screen-6)
+
+screen-6
+6
+nsubj(ends-3, FaceTime-2)
+
+FaceTime-2
+2
+nsubj(goes-7, screen-6)
+
+screen-6
+6
+nsubj(ready-3, Mama-1)
+
+Mama-1
+1
+nsubj(retired-6, she-5)
+
+she-5
+5
+nsubj(ready-3, Mama-1)
+
+Mama-1
+1
+nsubj(retired-6, she-5)
+
+she-5
+5
+nsubj(ready-3, Mama-1)
+
+Mama-1
+1
+nsubj(retired-6, she-5)
+
+she-5
+5
+nsubj(ready-3, Mama-1)
+
+Mama-1
+1
+nsubj(retired-6, she-5)
+
+she-5
+5
+nsubj(ready-3, Mama-1)
+
+Mama-1
+1
+nsubj(retired-6, she-5)
+
+she-5
+5
+nsubj(ready-3, Mama-1)
+
+Mama-1
+1
+nsubj(retired-6, she-5)
+
+she-5
+5
+nsubj(ready-3, Mama-1)
+
+Mama-1
+1
+nsubj(retired-6, she-5)
+
+she-5
+5
+nsubj(knew-2, She-1)
+
+She-1
+1
+nsubj(discovered-4, we-3)
+
+we-3
+3
+nsubj(did-7, she-6)
+
+she-6
+6
+nsubj(discovered-4, we-3)
+
+we-3
+3
+nsubj(did-7, she-6)
+
+she-6
+6
+nsubj(discovered-4, we-3)
+
+we-3
+3
+nsubj(did-7, she-6)
+
+she-6
+6
+nsubj(discovered-4, we-3)
+
+we-3
+3
+nsubj(did-7, she-6)
+
+she-6
+6
+nsubj(discovered-4, we-3)
+
+we-3
+3
+nsubj(did-7, she-6)
+
+she-6
+6
+nsubj(discovered-4, we-3)
+
+we-3
+3
+nsubj(did-7, she-6)
+
+she-6
+6
+nsubj(discovered-4, we-3)
+
+we-3
+3
+nsubj(did-7, she-6)
+
+she-6
+6
+nsubj(discovered-4, we-3)
+
+we-3
+3
+nsubj(did-7, she-6)
+
+she-6
+6
+nsubj(screech-3, She-1)
+
+She-1
+1
+nsubj(WHO-1, PEOPLE-4)
+
+PEOPLE-4
+4
+nsubj(afraid-4, Brian-1)
+
+Brian-1
+1
+nsubj(afraid-4, Brian-1)
+
+Brian-1
+1
+nsubj(afraid-4, Brian-1)
+
+Brian-1
+1
+nsubj(hangs-3, poster-2)
+
+poster-2
+2
+nsubj(hangs-3, poster-2)
+
+poster-2
+2
+nsubj(hangs-3, poster-2)
+
+poster-2
+2
+nsubj(hangs-3, poster-2)
+
+poster-2
+2
+nsubj(seen-3, I-1)
+
+I-1
+1
+nsubj(seen-3, I-1)
+
+I-1
+1
+nsubj(seen-3, I-1)
+
+I-1
+1
+nsubj(are-4, you-5)
+
+you-5
+5
+nsubj(asks-2, Mama-1)
+
+Mama-1
+1
+nsubj(asks-2, Mama-1)
+
+Mama-1
+1
+nsubj(asks-2, Mama-1)
+
+Mama-1
+1
+nsubj(asks-2, Mama-1)
+
+Mama-1
+1
+nsubj(asks-2, Mama-1)
+
+Mama-1
+1
+nsubj(asks-2, Mama-1)
+
+Mama-1
+1
+nsubj(tough-7, couch-2)
+
+couch-2
+2
+nsubj(tough-7, couch-2)
+
+couch-2
+2
+nsubj(tough-7, couch-2)
+
+couch-2
+2
+nsubj('m-3, I-2)
+
+I-2
+2
+nsubj(Mama-7, Michigan-5)
+
+Michigan-5
+5
+nsubj('m-3, I-2)
+
+I-2
+2
+nsubj(Mama-7, Michigan-5)
+
+Michigan-5
+5
+nsubj('s-2, McCall-1)
+
+McCall-1
+1
+nsubj('s-2, McCall-1)
+
+McCall-1
+1
+nsubj(had-2, We-1)
+
+We-1
+1
+nsubj(love-2, I-1)
+
+I-1
+1
+nsubj(center-9, it-6)
+
+it-6
+6
+nsubj(love-2, I-1)
+
+I-1
+1
+nsubj(center-9, it-6)
+
+it-6
+6
+nsubj(Aunt-6, Massachusetts-2)
+
+Massachusetts-2
+2
+nsubj(is-5, it-6)
+
+it-6
+6
+nsubj(president-4, Bush-2)
+
+Bush-2
+2
+nsubj(president-4, Bush-2)
+
+Bush-2
+2
+nsubj(president-4, Bush-2)
+
+Bush-2
+2
+nsubj(president-4, Bush-2)
+
+Bush-2
+2
+nsubj(is-5, it-6)
+
+it-6
+6
+nsubj(is-5, it-6)
+
+it-6
+6
+nsubj(is-5, it-6)
+
+it-6
+6
+nsubj(is-5, it-6)
+
+it-6
+6
+nsubj(deceiving-4, Mama-1)
+
+Mama-1
+1
+nsubj(all-6, us-5)
+
+us-5
+5
+nsubj(sounded-10, she-8)
+
+she-8
+8
+nsubj(deceiving-4, Mama-1)
+
+Mama-1
+1
+nsubj(all-6, us-5)
+
+us-5
+5
+nsubj(sounded-10, she-8)
+
+she-8
+8
+nsubj(deceiving-4, Mama-1)
+
+Mama-1
+1
+nsubj(all-6, us-5)
+
+us-5
+5
+nsubj(sounded-10, she-8)
+
+she-8
+8
+nsubj(driving-4, She-1)
+
+She-1
+1
+nsubj(driving-4, She-1)
+
+She-1
+1
+nsubj(driving-4, She-1)
+
+She-1
+1
+nsubj(driving-4, She-1)
+
+She-1
+1
+nsubj(driving-4, She-1)
+
+She-1
+1
+nsubj(take-2, I-1)
+
+I-1
+1
+nsubj(correct-2, All-1)
+
+All-1
+1
+nsubj(live-4, May-2)
+
+May-2
+2
+nsubj(wraps-2, Mama-1)
+
+Mama-1
+1
+nsubj(wraps-2, Mama-1)
+
+Mama-1
+1
+nsubj(wraps-2, Mama-1)
+
+Mama-1
+1
+nsubj(wraps-2, Mama-1)
+
+Mama-1
+1
+nsubj(remember-6, she-3)
+
+she-3
+3
+nsubj(turn-8, I-7)
+
+I-7
+7
+nsubj(turn-8, I-7)
+
+I-7
+7
+nsubj(dream-3, she-2)
+
+she-2
+2
+nsubj(dream-3, she-2)
+
+she-2
+2
+nsubj(dream-4, she-2)
+
+she-2
+2
+nsubj(like-4, I-3)
+
+I-3
+3
+nsubj(one-12, story-10)
+
+story-10
+10
+nsubjpass(written-17, one-12)
+
+one-12
+12
+nsubj(like-4, I-3)
+
+I-3
+3
+nsubj(one-12, story-10)
+
+story-10
+10
+nsubjpass(written-17, one-12)
+
+one-12
+12
+nsubj(is-2, She-1)
+
+She-1
+1
+nsubj(is-2, She-1)
+
+She-1
+1
+nsubj(is-2, She-1)
+
+She-1
+1
+nsubj(is-2, She-1)
+
+She-1
+1
+nsubj(is-2, She-1)
+
+She-1
+1
+nsubj(is-2, She-1)
+
+She-1
+1
+nsubj(is-2, She-1)
+
+She-1
+1
+nsubj(look-3, you-2)
+
+you-2
+2
+nsubj(look-3, you-2)
+
+you-2
+2
+nsubj(look-3, you-2)
+
+you-2
+2
+nsubj(bet-4, I-3)
+
+I-3
+3
+nsubj(wondering-7, you-5)
+
+you-5
+5
+nsubj(were-3, you-2)
+
+you-2
+2
+nsubj(are-8, you-7)
+
+you-7
+7
+nsubj(were-3, you-2)
+
+you-2
+2
+nsubj(are-8, you-7)
+
+you-7
+7
+nsubj(were-3, you-2)
+
+you-2
+2
+nsubj(are-8, you-7)
+
+you-7
+7
+nsubj(were-3, you-2)
+
+you-2
+2
+nsubj(are-8, you-7)
+
+you-7
+7
+nsubj(suppose-2, I-1)
+
+I-1
+1
+nsubj('s-4, shocker-6)
+
+shocker-6
+6
+nsubj(suppose-2, I-1)
+
+I-1
+1
+nsubj('s-4, shocker-6)
+
+shocker-6
+6
+nsubj(suppose-2, I-1)
+
+I-1
+1
+nsubj('s-4, shocker-6)
+
+shocker-6
+6
+nsubj(lost-2, Nothing-1)
+
+Nothing-1
+1
+nsubj(gained-5, nothing-4)
+
+nothing-4
+4
+nsubj(was-5, assignment-4)
+
+assignment-4
+4
+nsubj(was-5, assignment-4)
+
+assignment-4
+4
+nsubj(required-3, thought-2)
+
+thought-2
+2
+nsubj(figured-8, I-5)
+
+I-5
+5
+nsubj(figured-8, I-5)
+
+I-5
+5
+nsubj(makes-6, Everything-1)
+
+Everything-1
+1
+nsubj(written-5, I-2)
+
+I-2
+2
+nsubj(makes-6, Everything-1)
+
+Everything-1
+1
+nsubj(written-5, I-2)
+
+I-2
+2
+nsubj(makes-6, Everything-1)
+
+Everything-1
+1
+nsubj(written-5, I-2)
+
+I-2
+2
+nsubj(makes-6, Everything-1)
+
+Everything-1
+1
+nsubj(written-5, I-2)
+
+I-2
+2
+nsubj(ought-3, Writing-2)
+
+Writing-2
+2
+nsubj(ought-3, Writing-2)
+
+Writing-2
+2
+nsubj(ought-3, Writing-2)
+
+Writing-2
+2
+nsubj(ought-3, Writing-2)
+
+Writing-2
+2
+nsubj(ought-3, Writing-2)
+
+Writing-2
+2
+nsubj(took-9, girl-8)
+
+girl-8
+8
+nsubj(took-9, girl-8)
+
+girl-8
+8
+nsubj(took-9, girl-8)
+
+girl-8
+8
+nsubj(took-9, girl-8)
+
+girl-8
+8
+nsubj(took-9, girl-8)
+
+girl-8
+8
+nsubj(took-9, girl-8)
+
+girl-8
+8
+nsubj(took-9, girl-8)
+
+girl-8
+8
+nsubj(took-9, girl-8)
+
+girl-8
+8
+nsubj(took-9, girl-8)
+
+girl-8
+8
+nsubj(took-9, girl-8)
+
+girl-8
+8
+nsubj(took-9, girl-8)
+
+girl-8
+8
+nsubj(took-9, girl-8)
+
+girl-8
+8
+nsubj(saying-4, You-1)
+
+You-1
+1
+nsubj(know-2, I-1)
+
+I-1
+1
+nsubj(spent-6, I-4)
+
+I-4
+4
+nsubj(know-2, I-1)
+
+I-1
+1
+nsubj(spent-6, I-4)
+
+I-4
+4
+nsubj(know-2, I-1)
+
+I-1
+1
+nsubj(spent-6, I-4)
+
+I-4
+4
+nsubj(coming-6, She-1)
+
+She-1
+1
+nsubj(coming-6, Me-3)
+
+Me-3
+3
+nsubj(good-6, Writing-3)
+
+Writing-3
+3
+nsubj(evidence-11, writing-3)
+
+writing-3
+3
+nsubj(enjoy-8, you-4)
+
+you-4
+4
+nsubj(enjoy-8, I-6)
+
+I-6
+6
+nsubj(evidence-11, writing-3)
+
+writing-3
+3
+nsubj(enjoy-8, you-4)
+
+you-4
+4
+nsubj(enjoy-8, I-6)
+
+I-6
+6
+nsubj(evidence-11, writing-3)
+
+writing-3
+3
+nsubj(enjoy-8, you-4)
+
+you-4
+4
+nsubj(enjoy-8, I-6)
+
+I-6
+6
+nsubj(strong-6, prose-2)
+
+prose-2
+2
+nsubj(applying-12, it-10)
+
+it-10
+10
+nsubj(break-2, Page-1)
+
+Page-1
+1
+nsubj(break-2, Page-1)
+
+Page-1
+1
+nsubj(terms-9, Writing-2)
+
+Writing-2
+2
+nsubj(terms-9, text-6)
+
+text-6
+6
+nsubj(terms-9, Writing-2)
+
+Writing-2
+2
+nsubj(terms-9, text-6)
+
+text-6
+6
+nsubj(ended-7, I-6)
+
+I-6
+6
+nsubj(had-17, piece-11)
+
+piece-11
+11
+nsubj(essay-5, It-1)
+
+It-1
+1
+nsubj(essay-5, It-1)
+
+It-1
+1
+nsubj(essay-5, It-1)
+
+It-1
+1
+nsubj(think-3, You-1)
+
+You-1
+1
+nsubj(think-3, You-1)
+
+You-1
+1
+nsubj(right-6, you-4)
+
+you-4
+4
+nsubj(what-2, argument-6)
+
+argument-6
+6
+nsubj(what-2, argument-6)
+
+argument-6
+6
+nsubj(labor-4, It-1)
+
+It-1
+1
+nsubj(labor-4, It-1)
+
+It-1
+1
+nsubj(labor-4, It-1)
+
+It-1
+1
+nsubj(labor-4, It-1)
+
+It-1
+1
+nsubj(dream-3, she-2)
+
+she-2
+2
+nsubj(dream-3, she-2)
+
+she-2
+2
+nsubj(dream-3, she-2)
+
+she-2
+2
+nsubj(like-5, I-3)
+
+I-3
+3
+nsubj(one-13, story-11)
+
+story-11
+11
+nsubjpass(written-18, one-13)
+
+one-13
+13
+nsubj(like-5, I-3)
+
+I-3
+3
+nsubj(one-13, story-11)
+
+story-11
+11
+nsubjpass(written-18, one-13)
+
+one-13
+13
+nsubj(is-2, She-1)
+
+She-1
+1
+nsubj(is-2, She-1)
+
+She-1
+1
+nsubj(is-2, She-1)
+
+She-1
+1
+nsubj(is-2, She-1)
+
+She-1
+1
+nsubj(is-2, She-1)
+
+She-1
+1
+nsubj(is-2, She-1)
+
+She-1
+1
+nsubj(gotten-6, I-2)
+
+I-2
+2
+nsubj(gotten-6, I-2)
+
+I-2
+2
+nsubj(gotten-6, I-2)
+
+I-2
+2
+nsubj(hard-9, Writing-6)
+
+Writing-6
+6
+nsubj(hard-9, Writing-6)
+
+Writing-6
+6
+nsubj(hard-9, Writing-6)
+
+Writing-6
+6
+nsubj(break-2, Page-1)
+
+Page-1
+1
+nsubj(hard-7, it-4)
+
+it-4
+4
+nsubj(is-13, Writing-12)
+
+Writing-12
+12
+nsubj(have-2, People-1)
+
+People-1
+1
+nsubj(have-2, People-1)
+
+People-1
+1
+nsubj(have-2, People-1)
+
+People-1
+1
+nsubj(starts-10, Writing-8)
+
+Writing-8
+8
+nsubj(interested-5, me-4)
+
+me-4
+4
+nsubj(interested-5, me-4)
+
+me-4
+4
+nsubj(takes-4, it-3)
+
+it-3
+3
+nsubj(takes-4, it-3)
+
+it-3
+3
+nsubj(have-8, I-6)
+
+I-6
+6
+nsubj(spark-10, that-9)
+
+that-9
+9
+nsubj(have-8, I-6)
+
+I-6
+6
+nsubj(spark-10, that-9)
+
+that-9
+9
+nsubj(have-8, I-6)
+
+I-6
+6
+nsubj(spark-10, that-9)
+
+that-9
+9
+nsubj(have-8, I-6)
+
+I-6
+6
+nsubj(spark-10, that-9)
+
+that-9
+9
+nsubj(have-8, I-6)
+
+I-6
+6
+nsubj(spark-10, that-9)
+
+that-9
+9
+nsubj(have-8, I-6)
+
+I-6
+6
+nsubj(spark-10, that-9)
+
+that-9
+9
+nsubj(going-10, I-8)
+
+I-8
+8
+nsubj(going-10, I-8)
+
+I-8
+8
+nsubj(going-10, I-8)
+
+I-8
+8
+nsubj(process-14, Writing-10)
+
+Writing-10
+10
+nsubj(process-14, Writing-10)
+
+Writing-10
+10
+nsubj(process-14, Writing-10)
+
+Writing-10
+10
+nsubj(process-14, Writing-10)
+
+Writing-10
+10
+nsubj(process-14, Writing-10)
+
+Writing-10
+10
+nsubj(process-14, Writing-10)
+
+Writing-10
+10
+nsubj(process-14, Writing-10)
+
+Writing-10
+10
+nsubj(say-3, you-2)
+
+you-2
+2
+nsubj(say-7, we-6)
+
+we-6
+6
+nsubj(say-3, you-2)
+
+you-2
+2
+nsubj(say-7, we-6)
+
+we-6
+6
+nsubj(say-3, you-2)
+
+you-2
+2
+nsubj(say-7, we-6)
+
+we-6
+6
+nsubj(easier-17, it-15)
+
+it-15
+15
+nsubj(say-3, you-2)
+
+you-2
+2
+nsubj(say-7, we-6)
+
+we-6
+6
+nsubj(easier-17, it-15)
+
+it-15
+15
+nsubj(ought-9, animals-3)
+
+animals-3
+3
+nsubj(ought-9, animals-3)
+
+animals-3
+3
+nsubj(ought-9, animals-3)
+
+animals-3
+3
+nsubj(Who-1, ones-5)
+
+ones-5
+5
+nsubj(Who-1, ones-5)
+
+ones-5
+5
+nsubj(green-4, You-1)
+
+You-1
+1
+nsubj(destroying-6, actions-3)
+
+actions-3
+3
+nsubj(destroying-6, actions-3)
+
+actions-3
+3
+nsubj(destroying-6, actions-3)
+
+actions-3
+3
+nsubj(destroying-6, actions-3)
+
+actions-3
+3
+nsubj(destroying-6, actions-3)
+
+actions-3
+3
+nsubjpass(described-8, the-3)
+
+the-3
+3
+nsubjpass(described-8, the-3)
+
+the-3
+3
+nsubjpass(described-8, the-3)
+
+the-3
+3
+nsubjpass(described-8, the-3)
+
+the-3
+3
+nsubjpass(described-8, the-3)
+
+the-3
+3
+nsubj(big-4, loaf-2)
+
+loaf-2
+2
+nsubj(new-minted-3, Money-1)
+
+Money-1
+1
+nsubj(means-4, I-1)
+
+I-1
+1
+nsubj(means-4, I-1)
+
+I-1
+1
+nsubj(means-4, I-1)
+
+I-1
+1
+nsubj(means-4, I-1)
+
+I-1
+1
+nsubj(means-4, I-1)
+
+I-1
+1
+nsubj(means-4, I-1)
+
+I-1
+1
+nsubj(means-4, I-1)
+
+I-1
+1
+nsubj(means-4, I-1)
+
+I-1
+1
+nsubj(means-4, I-1)
+
+I-1
+1
+nsubj(means-4, I-1)
+
+I-1
+1
+nsubj(means-4, I-1)
+
+I-1
+1
+nsubj(means-4, I-1)
+
+I-1
+1
+nsubj(means-4, I-1)
+
+I-1
+1
+nsubj(means-4, I-1)
+
+I-1
+1
+nsubj(means-4, I-1)
+
+I-1
+1
+nsubj(means-4, I-1)
+
+I-1
+1
+nsubj(means-4, I-1)
+
+I-1
+1
+nsubj(means-4, I-1)
+
+I-1
+1
+nsubj(means-4, I-1)
+
+I-1
+1
+nsubj(means-4, I-1)
+
+I-1
+1
+nsubj(means-4, I-1)
+
+I-1
+1
+nsubj(means-4, I-1)
+
+I-1
+1
+nsubj(means-4, I-1)
+
+I-1
+1
+nsubj(means-4, I-1)
+
+I-1
+1
+nsubj(means-4, I-1)
+
+I-1
+1
+nsubj(means-4, I-1)
+
+I-1
+1
+nsubj(means-4, I-1)
+
+I-1
+1
+nsubj(means-4, I-1)
+
+I-1
+1
+nsubj(means-4, I-1)
+
+I-1
+1
+nsubj(means-4, I-1)
+
+I-1
+1
+nsubj(means-4, I-1)
+
+I-1
+1
+nsubj(means-4, I-1)
+
+I-1
+1
+nsubj(means-4, I-1)
+
+I-1
+1
+nsubj(means-4, I-1)
+
+I-1
+1
+nsubj(means-4, I-1)
+
+I-1
+1
+nsubj(means-4, I-1)
+
+I-1
+1
+nsubj(means-4, I-1)
+
+I-1
+1
+nsubj(means-4, I-1)
+
+I-1
+1
+nsubj(means-4, I-1)
+
+I-1
+1
+nsubj(means-4, I-1)
+
+I-1
+1
+nsubj(means-4, I-1)
+
+I-1
+1
+nsubj(means-4, I-1)
+
+I-1
+1
+nsubj(means-4, I-1)
+
+I-1
+1
+nsubj(means-4, I-1)
+
+I-1
+1
+nsubj(means-4, I-1)
+
+I-1
+1
+nsubj(means-4, I-1)
+
+I-1
+1
+nsubj(means-4, I-1)
+
+I-1
+1
+nsubj(means-4, I-1)
+
+I-1
+1
+nsubj(means-4, I-1)
+
+I-1
+1
+nsubj(means-4, I-1)
+
+I-1
+1
+nsubj(means-4, I-1)
+
+I-1
+1
+nsubj(means-4, I-1)
+
+I-1
+1
+nsubj(means-4, I-1)
+
+I-1
+1
+nsubj(means-4, I-1)
+
+I-1
+1
+nsubj(means-4, I-1)
+
+I-1
+1
+nsubj(means-4, I-1)
+
+I-1
+1
+nsubj(means-4, I-1)
+
+I-1
+1
+nsubj(means-4, I-1)
+
+I-1
+1
+nsubj(means-4, I-1)
+
+I-1
+1
+nsubj(means-4, I-1)
+
+I-1
+1
+nsubj(means-4, I-1)
+
+I-1
+1
+nsubj(means-4, I-1)
+
+I-1
+1
+nsubj(means-4, I-1)
+
+I-1
+1
+nsubj(means-4, I-1)
+
+I-1
+1
+nsubj(means-4, I-1)
+
+I-1
+1
+nsubj(means-4, I-1)
+
+I-1
+1
+nsubj(means-4, I-1)
+
+I-1
+1
+nsubj(means-4, I-1)
+
+I-1
+1
+nsubj(means-4, I-1)
+
+I-1
+1
+nsubj(means-4, I-1)
+
+I-1
+1
+nsubj(240-3, Campbell-2)
+
+Campbell-2
+2
+nsubj(240-3, Campbell-2)
+
+Campbell-2
+2
+nsubj(240-3, Campbell-2)
+
+Campbell-2
+2
+nsubj(240-3, Campbell-2)
+
+Campbell-2
+2
+nsubj(240-3, Campbell-2)
+
+Campbell-2
+2
+nsubj(240-3, Campbell-2)
+
+Campbell-2
+2
+nsubj(240-3, Campbell-2)
+
+Campbell-2
+2
+nsubj(240-3, Campbell-2)
+
+Campbell-2
+2
+nsubj(240-3, Campbell-2)
+
+Campbell-2
+2
+nsubj(240-3, Campbell-2)
+
+Campbell-2
+2
+nsubj(240-3, Campbell-2)
+
+Campbell-2
+2
+nsubj(240-3, Campbell-2)
+
+Campbell-2
+2
+nsubj(240-3, Campbell-2)
+
+Campbell-2
+2
+nsubj(240-3, Campbell-2)
+
+Campbell-2
+2
+nsubj(240-3, Campbell-2)
+
+Campbell-2
+2
+22.1842105263
+1.38056680162
+0.0688259109312
+0.0708502024291
+0.566801619433
+0.815789473684
+4.69241838295
+[('the', 480), ('of', 377), ('to', 318), ('and', 301), ('a', 259), ('in', 181), ('her', 176), ('that', 164), ('I', 135), ('with', 114)]
+[(('of', 'the'), 68), (('in', 'the'), 40), (('as', 'a'), 33), (('her', 'beauty'), 26), (('of', 'her'), 24), (('to', 'the'), 23), (('to', 'be'), 19), (('and', 'the'), 17), (('of', 'a'), 17), (('the', 'world'), 17)]
+[(('of', 'the', 'world'), 12), (('a', 'means', 'of'), 10), (('Charlotte', 'and', 'Margo'), 9), (('her', 'beauty', 'and'), 8), (('as', 'a', 'means'), 6), (('Mom', 'and', 'I'), 6), (('use', 'of', 'metaphor'), 6), (('of', 'her', 'beauty'), 5), (('sense', 'of', 'self'), 5), (('the', 'effect', 'of'), 5)]
+0.0512447449928
+0.0883791760203
+6.61538461538

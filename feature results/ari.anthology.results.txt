@@ -1,0 +1,12 @@
+nsubj(standpoint-7, sovereignty-3)
+
+sovereignty-3
+3
+nsubj(resolves-14, standpoint-7)
+
+standpoint-7
+7
+nsubj(resolves-14, standpoint-7')
+
+standpoint-7'
+7'
