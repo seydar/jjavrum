@@ -7,14 +7,13 @@ function db = db_setup(path)
     text      = importdata(full_path);
 
     listing   = dir([path '/features/' paper_name '.*']);
-    listing   = arrayfun(@(x) x.name, listing, 'uni', false);
 
     features  = struct();
     if size(listing, 1) ~= 0
       for i = 1:size(listing, 1)
-        feature = listing{i};
-        feature = feature((length(paper_name) + 2):(end - 4));
-        load([path '/features/' listing{i}], 'data');
+        nom = listing(i);
+        feature = nom.name((length(paper_name) + 2):(end - 4));
+        load([path '/features/' nom.name], 'data');
         features.(feature) = data;
       end
     end
