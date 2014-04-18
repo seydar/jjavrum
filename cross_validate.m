@@ -14,7 +14,7 @@ function [ tfr tsr ] = cross_validate( author_1, author_2, w, T )
     total_first_rate = zeros(10,1);
     total_second_rate = zeros(10,1);
 
-    parfor i=1:10
+    parfor i=1:2
 
        disp(['testing i = ' num2str(i)])
        f_test = all_f_indices(mod(all_f_indices, 10) == (i-1));

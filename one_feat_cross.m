@@ -14,7 +14,7 @@ function [ tfr tsr ] = one_feat_cross( author_1, author_2, feature, T )
   total_first_rate = zeros(10,1);
   total_second_rate = zeros(10,1);
 
-  parfor i=1:10
+  parfor i=1:2
     f_test = all_f_indices(mod(all_f_indices, 10) == (i-1));
     f_train = all_f_indices(mod(all_f_indices, 10) ~= (i-1));
 
