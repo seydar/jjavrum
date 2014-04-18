@@ -5,9 +5,6 @@
 0.0
 1.1
 4.27212389381
-[('to', 23), ('the', 22), ('and', 14), ('our', 12), ('we', 10), ('of', 10), ('say', 9), ('you', 8), ('on', 6), ('out', 5)]
-[(('we', 'say'), 4), (('When', 'you'), 3), (('you', 'say'), 3), (('of', 'our'), 3), (('to', 'use'), 2), (('in', 'the'), 2), (('us', 'to'), 2), (('on', 'and'), 2), (('to', 'take'), 2), (('to', 'your'), 2)]
-[(('When', 'you', 'say'), 3), (('on', 'and', 'off'), 2), (('trees', 'But', 'we'), 1), (('you', 'can', 'rally'), 1), (('located', 'at', 'the'), 1), (('dark', 'and', 'dreary'), 1), (('pave', 'more', 'direct'), 1), (('the', 'disgruntled', 'the'), 1), (('in', 'the', 'house'), 1), (('of', 'our', 'driveway'), 1)]
 0.0697396552552
 0.0921950010737
 7.75

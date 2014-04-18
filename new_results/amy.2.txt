@@ -5,9 +5,6 @@
 0.306451612903
 0.862903225806
 4.42252964427
-[('the', 85), ('of', 74), ('and', 67), ('I', 67), ('to', 66), ('a', 66), ('that', 62), ('is', 40), ('my', 36), ('with', 32)]
-[(('Good', 'Writing'), 15), (('I', 'had'), 10), (('of', 'the'), 9), (('I', 'have'), 8), (('in', 'the'), 7), (('and', 'I'), 7), (('that', 'I'), 6), (('in', 'my'), 6), (('of', 'my'), 5), (('do', "n't"), 5)]
-[(('Good', 'Writing', 'should'), 4), (('the', 'writing', 'process'), 3), (('Writing', 'should', 'be'), 3), (('a', 'lot', 'of'), 3), (('Good', 'Writing', 'is'), 3), (('I', 'have', 'a'), 3), (('should', 'be', 'hard'), 3), (('the', 'last', 'sentence'), 2), (('the', 'topic', 'at'), 2), (('sort', 'of', 'argument'), 2)]
 0.0662884746065
 0.0948960794181
 7.43548387097

@@ -5,9 +5,6 @@
 0.721649484536
 0.814432989691
 4.6733416771
-[('the', 158), ('of', 95), ('is', 75), ('a', 64), ('to', 55), ('in', 51), ('and', 45), ('that', 41), ('Keats', 35), ('poem', 26)]
-[(('of', 'the'), 25), (('the', 'poem'), 19), (('the', 'nightingale'), 14), (('in', 'the'), 11), (('that', 'Keats'), 9), (('the', 'reader'), 8), (('of', 'poetry'), 7), (('does', 'not'), 7), (('to', 'a'), 7), (('to', 'the'), 7)]
-[(('Ode', 'to', 'a'), 6), (('to', 'a', 'Nightingale'), 5), (('of', 'the', 'poem'), 4), (('more', 'than', 'just'), 4), (('language', 'of', 'poetry'), 4), (('make', 'sense', 'of'), 3), (('to', 'join', 'the'), 3), (('the', 'poetry', 'language'), 3), (('in', 'love', 'with'), 3), (('is', 'not', 'the'), 3)]
 0.178566698936
 0.243086639645
 11.7319587629

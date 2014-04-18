@@ -5,9 +5,6 @@
 0.513089005236
 0.513089005236
 4.64623032312
-[('the', 186), ('to', 136), ('of', 106), ('Oskar', 82), ('is', 81), ('and', 77), ('his', 68), ('that', 64), ("'s", 61), ('in', 53)]
-[(('in', 'the'), 17), (('of', 'the'), 16), (('his', 'father'), 15), (('Oskar', "'s"), 14), (('Dr.', 'Fein'), 10), (('that', 'he'), 10), (('his', 'mother'), 10), (('of', 'language'), 9), (('father', "'s"), 9), (('I', 'love'), 9)]
-[(('I', 'love', 'you'), 9), (('his', 'father', "'s"), 8), (('Loud', 'and', 'Incredibly'), 5), (('Extremely', 'Loud', 'and'), 5), (('and', 'Incredibly', 'Close'), 5), (('silence', 'and', 'nothingness'), 4), (('say', 'I', 'love'), 4), (('the', 'death', 'of'), 4), (('father', "'s", 'voice'), 4), (('to', 'deal', 'with'), 3)]
 0.191717685709
 0.268825573315
 11.0732984293
