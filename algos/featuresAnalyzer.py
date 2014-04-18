@@ -42,6 +42,7 @@ class FeaturesAnalyzer:
 		self.topUnigrams = self.findTopUnigrams()
 		self.topBigrams = self.findTopBigrams()
 		self.topTrigrams = self.findTopTrigrams()
+		self.setAvgPositions()
 	
 	def defineTokens(self):
 		tokens = []
@@ -191,8 +192,6 @@ class FeaturesAnalyzer:
 				elif len(tag.strip()) > 0:
 					#print(i, "Typed dependencies: ", tag) 
 					if tag.find("nsub") >= 0:
-						if foundSubj == True:
-							print("multiple subjects found")
 						foundSubj = True
 						#print(sentenceEncoded)
 
@@ -215,25 +214,23 @@ class FeaturesAnalyzer:
 						#print(subjPos)
 						if lastSubj != subj:
 							totalSubjPercent += float(subjPos)/sentenceLength
-						else:
-							print("same subject found")
+						
 						if lastVerb != verb:
 							totalVerbPercent += float(verbPos)/sentenceLength
 						lastSubj = subj
 						lastVerb = verb
-			print(maxDepth)
+			#print(maxDepth)
 			totalDepth += maxDepth
-			if foundSubj == False:
-				print(sentenceEncoded)
+			
 		avgSubjPos = totalSubjPercent/self.numSentences
 		avgVerbPos = totalVerbPercent/self.numSentences
 		avgMaxDepth = float(totalDepth)/self.numSentences
 		self.avgSubjPos = avgSubjPos
 		self.avgVerbPos = avgVerbPos
 		self.avgMaxDepth = avgMaxDepth
-		print(avgSubjPos)
-		print(avgVerbPos)
-		print(avgMaxDepth)
+		#print(avgSubjPos)
+		#print(avgVerbPos)
+		#print(avgMaxDepth)
 	#don't print out new line character at end
 	def printPretty(self):
 		print("average sentence length: " + str(self.sentenceLength))
@@ -246,7 +243,9 @@ class FeaturesAnalyzer:
 		print("most common unigrams: " + str(self.topUnigrams))
 		print("most common bigrams: " + str(self.topBigrams))
 		print("most common trigrams: " + str(self.topTrigrams))
-
+		print("average position of subject: " + str(self.avgSubjPos))
+		print("average position of verb: " + str(self.avgVerbPos))
+		print("average max depth: " + str(self.avgMaxDepth))
 
 	def printComputer(self):
 		print(str(self.sentenceLength))
@@ -256,13 +255,13 @@ class FeaturesAnalyzer:
 		print(str(self.quotationRate))
 		print(str(self.conjunctionRate))
 		print(str(self.wordLength))
+		print(str(self.topUnigrams))
+		print(str(self.topBigrams))
+		print(str(self.topTrigrams))
+		print(str(self.avgSubjPos))
+		print(str(self.avgVerbPos))
+		print(str(self.avgMaxDepth), end = "")
 
-		self.printTopUnigrams()
-		self.printTopBigrams()
-		self.printTopTrigrams()
-		#print(str(self.topUnigrams))
-		#print(str(self.topBigrams))
-		#print(str(self.topTrigrams), end = "")
 
 if __name__ == "__main__":
 	fileName = sys.argv[-1]
@@ -277,7 +276,7 @@ if __name__ == "__main__":
 	featuresAnalyzer = FeaturesAnalyzer(fileName)
 	#featuresAnalyzer.printPretty()
 	featuresAnalyzer.printComputer()
-	#featuresAnalyzer.setAvgPositions()
+
 
 	#featuresAnalyzer.printPretty()
 	#featuresAnalyzer.printComputer()
