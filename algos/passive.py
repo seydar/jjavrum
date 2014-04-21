@@ -17,39 +17,30 @@ def collect_tags(tagged_sent):
     all_tags.append(tup[1])
   return all_tags
         
-def passivep(tags):
-  postToBe = list(dropwhile(lambda(pos_tag): not pos_tag.startswith("VBG") and not pos_tag.startswith("VBN"), tags))
+def passivephrase(tags):
+  postger = list(dropwhile(lambda(pos_tag): not pos_tag.startswith("VBG") and not pos_tag.startswith("VBN"), tags))
   nongerund = lambda(pos_tag): pos_tag.startswith("V") and not pos_tag.startswith("VBG")
-  filtered = filter(nongerund, postToBe)
-  out = any(filtered)
-  return out
+  separate = filter(nongerund, postger)
+  true_passive = any(separate)
+  return true_passive
     
-def oneline(sent):
+def one_liner(sent):
     return sent.replace("\n", " ").replace("\r", " ")
         
 
-def print_if_passive(sent):
+def print_the_passives(sent):
     tagged = tag_sentence(sent)
     tags = map( lambda(tup): tup[1], tagged)
-    if passivep(tags):
-        print "passive:", oneline(sent)
+    if passivephrase(tags):
+        print "passive: ", one_liner(sent)
 
 
 def collect_passive(sent):
     tagged = tag_sentence(sent)
     tags = map( lambda(tup): tup[1], tagged)
-    if passivep(tags) == True:
-        return oneline(sent)
+    if passivephrase(tags) == True:
+        return one_liner(sent)
     
-
-    # def collect_passive(sent):
-    # tagged = tag_sentence(sent)
-    # tags = map( lambda(tup): tup[1], tagged)
-    # collect_passives = []
-    # if passivep(tags) == True:
-    #     collect_passives.append(sent)
-    # return collect_passives
-
 
 punkt = nltk.tokenize.punkt.PunktSentenceTokenizer() 
                      
@@ -63,7 +54,7 @@ def find_and_print_passives(fn):
         for sent in sentences:
             tagged = tag_sentence(sent)
             tags = map( lambda(tup): tup[1], tagged)
-            if passivep(tags) == True:
+            if passivephrase(tags) == True:
                 collect_passive_sents.append(sent)
     return collect_passive_sents
                                                 
@@ -107,4 +98,4 @@ def main():
 
 if __name__ == "__main__":
     main()
-
+ 
