@@ -1,35 +1,62 @@
-function [ tfr tsr ] = cross_validate( author_1, author_2, w, T )
+function [ tfr tsr ] = cross_validate(firsts, seconds)
+  disp('cross validating all');
+  %db = db_setup('.');
+  %firsts  = dir(['./papers/' author_1 '.*']);
+  %seconds = dir(['./papers/' author_2 '.*']);
+  %firsts  = arrayfun(@(x) db.get_paper(x.name), firsts);
+  %seconds = arrayfun(@(x) db.get_paper(x.name), seconds);
 
-    % 10-fold cross validation
+  % god bless stackoverflow
+  % http://stackoverflow.com/questions/3070789/example-of-10-fold-svm-classification-in-matlab/3071938#3071938
+  first_feats  = [];
+  second_feats = [];
 
-    firsts = dir(['./papers/' author_1 '.*']);
-    seconds = dir(['./papers/' author_2 '.*']);
+  for j = 1:size(firsts, 1)
+    somme = sum(firsts(j).features.ety);
+    first_feats = [first_feats; firsts(j).features.sentence_length firsts(j).features.word_length firsts(j).features.punctuation firsts(j).features.avg_max_depth firsts(j).features.avg_nodes firsts(j).features.ety./somme]; %firsts(j).features.conjunctions firsts(j).features.avg_verb_pos firsts(j).features.avg_subj_pos];
+  end
 
-    f_size = size(firsts);
-    s_size = size(seconds);
+  for j = 1:size(seconds, 1)
+    somme = sum(seconds(j).features.ety);
+    second_feats = [second_feats; seconds(j).features.sentence_length seconds(j).features.word_length seconds(j).features.punctuation seconds(j).features.avg_max_depth seconds(j).features.avg_nodes seconds(j).features.ety./somme]; %seconds(j).features.conjunctions seconds(j).features.avg_verb_pos seconds(j).features.avg_subj_pos];
+  end
 
-    all_f_indices = 1:f_size;
-    all_s_indices = 1:s_size;
-
-    total_first_rate = zeros(10,1);
-    total_second_rate = zeros(10,1);
-
-    parfor i=1:2
-
-       disp(['testing i = ' num2str(i)])
-       f_test = all_f_indices(mod(all_f_indices, 10) == (i-1));
-       f_train = all_f_indices(mod(all_f_indices, 10) ~= (i-1));
-
-       s_test = all_s_indices(mod(all_s_indices, 10) == (i-1));
-       s_train = all_s_indices(mod(all_s_indices, 10) ~= (i-1));
-
-       [aut_1_rate aut_2_rate] = weight_all_feats(author_1, author_2, w, f_test, f_train, s_test, s_train, T);
-
-       total_first_rate(i) = aut_1_rate*(size(f_test,2)/f_size(1));
-       total_second_rate(i) = aut_2_rate*(size(s_test,2)/s_size(1));
-    end
-
-    tfr = sum(total_first_rate);
-    tsr = sum(total_second_rate);
+  key = [repmat(0, size(first_feats, 1), 1); repmat(1, size(second_feats, 1), 1)];
+  groups = key;         %# create a two-class problem
+  meas = [first_feats; second_feats];
+  
+  %# number of cross-validation folds:
+  %# If you have 50 samples, divide them into 10 groups of 5 samples each,
+  %# then train with 9 groups (45 samples) and test with 1 group (5 samples).
+  %# This is repeated ten times, with each group used exactly once as a test set.
+  %# Finally the 10 results from the folds are averaged to produce a single 
+  %# performance estimation.
+  k=10;
+  
+  cvFolds = crossvalind('Kfold', groups, k);   %# get indices of 10-fold CV
+  cp = classperf(groups);                      %# init performance tracker
+  
+  for i = 1:k                                  %# for each fold
+      testIdx = (cvFolds == i);                %# get indices of test instances
+      trainIdx = ~testIdx;                     %# get indices training instances
+  
+      %# train an SVM model over training instances
+      svmModel = svmtrain(meas(trainIdx,:), groups(trainIdx), ...
+                   'Autoscale',true, 'Showplot',false, 'Method','QP', ...
+                   'BoxConstraint',2e-1, 'Kernel_Function','rbf', 'RBF_Sigma',1);
+  
+      %# test using test instances
+      pred = svmclassify(svmModel, meas(testIdx,:), 'Showplot',false);
+  
+      %# evaluate and update performance object
+      cp = classperf(cp, pred, testIdx);
+  end
+  
+  %# get accuracy
+  cp.CorrectRate
+  
+  %# get confusion matrix
+  %# columns:actual, rows:predicted, last-row: unclassified instances
+  cp.CountingMatrix
 end
 
