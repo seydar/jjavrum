@@ -42,15 +42,6 @@ def collect_passive(sent):
         return one_liner(sent)
     
 
-    # def collect_passive(sent):
-    # tagged = tag_sentence(sent)
-    # tags = map( lambda(tup): tup[1], tagged)
-    # collect_passives = []
-    # if passivephrase(tags) == True:
-    #     collect_passives.append(sent)
-    # return collect_passives
-
-
 punkt = nltk.tokenize.punkt.PunktSentenceTokenizer() 
                      
 def find_and_print_passives(fn):
