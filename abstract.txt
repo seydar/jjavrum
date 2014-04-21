@@ -1,0 +1,8 @@
+Title: Author Identification of Written Text
+
+Team: Ari Brown, Jen Eisenberg, Jordan VanderZwaag
+
+
+In our project we built a program that, given sample text, can provide an informed guess as to who is the author. We devised an extensive feature detection system such that the features are fed into a support vector machine to give an educated guess as to who the author could be from a set database of possibilities the model is trained upon. The program also provides data to help discern why one author's "voice" is more prevalent than another's based on features like average sentence structure, percentage use of passive versus active voice, and word etymologies. 
+
+We maintained usage of NLTK for myriad features, a python program used for tokenization, parsing and part-of-speech tagging. By using a machine learning algorithm, Support Vector Machine (SVM), the program constructs an estimate as to who has the most common features per text. The SVM runs once per feature and afterwards we integrate the outcomes of each feature combining the results in a weighted system. The educated author guess is then declared based on the author who has the most weight after a comparison of features per author is run in the background.
